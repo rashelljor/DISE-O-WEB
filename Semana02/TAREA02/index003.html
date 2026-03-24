@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joel Miller - The Last of Us</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='central' font-size='80'>🪓</text></svg>"
+    />
+    <style>
+        :root {
+            --bg: #0d0e11;
+            --surface: rgba(28, 30, 34, 0.95);
+            --text: #f3f3f3;
+            --accent: #e04d3f;
+            --muted: #b5b5b5;
+            --border: rgba(255, 255, 255, 0.13);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: radial-gradient(circle at 20% 0, #333 0%, #0a0b0f 55%, #07080c 100%);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        header, main, footer {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0.9rem 1rem;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 1rem 0;
+            color: var(--accent);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-shadow: 0 0 12px rgba(224, 77, 63, 0.6);
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 980px;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            max-height: 380px;
+        }
+
+        main {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        main h2 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        main h2:first-child {
+            margin-top: 0;
+        }
+
+        main p {
+            color: #d2d4d8;
+            line-height: 1.8;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: #d2d4d8;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        .side-image {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            max-height: 300px;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Joel Miller</h1>
+        <p style="color: #b5b5b5; margin: 0;">El Protector</p>
+    </header>
+
+    <div class="hero-section">
+        <img src="assetsT/img002.png" alt="Joel Miller retrato" class="hero-image">
+        <img src="assetsT/img009.png" alt="Joel en acción" class="hero-image">
+    </div>
+
+    <main>
+        <h2>Sobre Joel Miller</h2>
+        <p>Joel Miller es el protagonista principal de The Last of Us. Un hombre endurecido por la supervivencia en un mundo post-apocalíptico, Joel se convierte en mucho más que un sobreviviente cuando conoce a Ellie. Su viaje de redención y protección define toda la narrativa del juego, mostrando cómo la conexión humana puede transformar incluso al alma más oscura.</p>
+
+        <h2>Características Principales</h2>
+        <ul>
+            <li><strong>Líder Natural:</strong> Posee las habilidades de liderazgo y la experiencia necesaria para navegar los peligros del mundo infectado.</li>
+            <li><strong>Combatidor Experto:</strong> Domina múltiples armas y técnicas de combate, aprendidas a lo largo de años de supervivencia.</li>
+            <li><strong>Inteligencia Táctica:</strong> Siempre está pensando estratégicamente y planificando la mejor ruta de escape o defensa.</li>
+            <li><strong>Protector Leal:</strong> Una vez que se compromete a cuidar a alguien, daría su vida por ello.</li>
+        </ul>
+
+        <img src="assetsT/img009.jpg" alt="Joel en el viaje" class="side-image">
+
+        <h2>Historia de Joel</h2>
+        <p>Joel comenzó la pandemia como un padre amoroso, pero la pérdida de su hija Sarah en el día del brote cambió su vida para siempre. Durante veinte años, Joel sobrevivió en la zona de cuarentena de Austin, convirtiéndose en un contrabandista y un hombre marcado por el trauma. Fue solo hasta que conoció a Ellie que redescubrió su propósito como protector.</p>
+
+        <h2>Relación con Ellie</h2>
+        <p>La relación entre Joel y Ellie es el corazón emocional de The Last of Us. Lo que comienza como una transacción comercial se transforma en un vínculo profundo de padre e hija. A través de su viaje juntos, Joel encuentra redención y propósito, mientras que Ellie descubre que la humanidad aún existe en este mundo oscuro. Su conexión es lo que impulsa toda la narrativa y los define como personajes.</p>
+
+        <a href="index001.html" class="back-link">← Volver a The Last of Us</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Last of Us. Todos los derechos reservados.</p>   
+    </footer>
+</body>
+</html>
