@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador Universitario</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0f1a;
+      --surface: #161827;
+      --surface2: #1e2136;
+      --accent: #f0c040;
+      --accent2: #e07b3f;
+      --text: #e8eaf0;
+      --muted: #8890aa;
+      --border: rgba(240,192,64,0.15);
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--text); }
+
+    nav {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+      background: rgba(240,192,64,0.08);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 55% at 50% 0%, rgba(240,192,64,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      max-width: 440px;
+      margin: 0 auto 0.5rem;
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.8rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap::before {
+      content: '🔍';
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+    .filter-tabs button {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-tabs button.active,
+    .filter-tabs button:hover {
+      background: var(--accent);
+      color: #0d0f1a;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-header .icon {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface2);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .section-header .count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── GRID ── */
+    .section { margin-bottom: 3rem; }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(240,192,64,0.04));
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(240,192,64,0.4);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface2);
+      border-radius: 8px;
+    }
+    .card-body { flex: 1; min-width: 0; }
+    .card-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      color: var(--text);
+    }
+    .card-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-tag {
+      display: inline-block;
+      margin-top: 0.45rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(240,192,64,0.12);
+      color: var(--accent);
+    }
+
+    /* ── CONCLUSIONS ── */
+    .conclusions {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    .conclusions h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .conclusions p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+    .conclusions strong { color: var(--text); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag-list span {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+    }
+    .tag-list span strong { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── HIDDEN CLASS ── */
+    .card.hidden { display: none; }
+    .section.empty-section { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="logo">Uni<span>Hub</span></div>
+  <nav>
+    <a href="#recursos">Recursos</a>
+    <a href="#herramientas">Herramientas</a>
+    <a href="#cursos">Cursos</a>
+    <a href="#conclusiones">Conclusiones</a>
+  </nav>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <h1>Tu <em>organizador</em><br>universitario</h1>
+  <p>Accede rápidamente a herramientas, recursos y páginas útiles para todos tus cursos.</p>
+
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Buscar recurso, herramienta o curso…" oninput="filterCards()">
+  </div>
+</section>
+
+<!-- ═══ FILTER TABS ═══ -->
+<div class="filter-tabs">
+  <button class="active" onclick="filterByTag('all', this)">Todos</button>
+  <button onclick="filterByTag('escritura', this)">✍️ Escritura</button>
+  <button onclick="filterByTag('investigación', this)">🔬 Investigación</button>
+  <button onclick="filterByTag('productividad', this)">⚡ Productividad</button>
+  <button onclick="filterByTag('matemáticas', this)">📐 Matemáticas</button>
+  <button onclick="filterByTag('programación', this)">💻 Programación</button>
+  <button onclick="filterByTag('idiomas', this)">🌐 Idiomas</button>
+  <button onclick="filterByTag('biblioteca', this)">📚 Biblioteca</button>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+  <!-- HERRAMIENTAS DE PRODUCTIVIDAD -->
+  <section class="section" id="herramientas">
+    <div class="section-header">
+      <div class="icon">⚡</div>
+      <h2>Herramientas de Productividad</h2>
+      <span class="count">6 recursos</span>
+    </div>
+    <div class="resource-grid">
+      <a class="card" href="https://notion.so" target="_blank" data-tag="productividad">
+        <div class="card-icon">📓</div>
+        <div class="card-body">
+          <div class="card-title">Notion</div>
+          <div class="card-desc">Organiza notas, tareas y proyectos</div>
+          <span class="card-tag">Productividad</span>
+        </div>
+      </a>
+      <a class="card" href="https://trello.com" target="_blank" data-tag="productividad">
+        <div class="card-icon">📋</div>
+        <div class="card-body">
+          <div class="card-title">Trello</div>
+          <div class="card-desc">Tableros Kanban para gestionar proyectos</div>
+          <span class="card-tag">Productividad</span>
+        </div>
+      </a>
+      <a class="card" href="https://calendar.google.com" target="_blank" data-tag="productividad">
+        <div class="card-icon">📅</div>
+        <div class="card-body">
+          <div class="card-title">Google Calendar</div>
+          <div class="card-desc">Gestiona horarios de clases y exámenes</div>
+          <span class="card-tag">Productividad</span>
+        </div>
+      </a>
+      <a class="card" href="https://pomofocus.io" target="_blank" data-tag="productividad">
+        <div class="card-icon">🍅</div>
+        <div class="card-body">
+          <div class="card-title">Pomofocus</div>
+          <div class="card-desc">Temporizador Pomodoro para estudiar</div>
+          <span class="card-tag">Productividad</span>
+        </div>
+      </a>
+      <a class="card" href="https://drive.google.com" target="_blank" data-tag="productividad">
+        <div class="card-icon">☁️</div>
+        <div class="card-body">
+          <div class="card-title">Google Drive</div>
+          <div class="card-desc">Almacena y comparte archivos académicos</div>
+          <span class="card-tag">Productividad</span>
+        </div>
+      </a>
+      <a class="card" href="https://anki.apps.ankiweb.net" target="_blank" data-tag="productividad">
+        <div class="card-icon">🃏</div>
+        <div class="card-body">
+          <div class="card-title">Anki</div>
+          <div class="card-desc">Flashcards para memorización espaciada</div>
+          <span class="card-tag">Productividad</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ESCRITURA Y REDACCIÓN -->
+  <section class="section" id="recursos">
+    <div class="section-header">
+      <div class="icon">✍️</div>
+      <h2>Escritura y Redacción</h2>
+      <span class="count">5 recursos</span>
+    </div>
+    <div class="resource-grid">
+      <a class="card" href="https://docs.google.com" target="_blank" data-tag="escritura">
+        <div class="card-icon">📄</div>
+        <div class="card-body">
+          <div class="card-title">Google Docs</div>
+          <div class="card-desc">Redacción colaborativa en la nube</div>
+          <span class="card-tag">Escritura</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.grammarly.com" target="_blank" data-tag="escritura">
+        <div class="card-icon">✅</div>
+        <div class="card-body">
+          <div class="card-title">Grammarly</div>
+          <div class="card-desc">Corrector gramatical en inglés</div>
+          <span class="card-tag">Escritura</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.zotero.org" target="_blank" data-tag="escritura investigación">
+        <div class="card-icon">📎</div>
+        <div class="card-body">
+          <div class="card-title">Zotero</div>
+          <div class="card-desc">Gestor de referencias bibliográficas</div>
+          <span class="card-tag">Escritura</span>
+        </div>
+      </a>
+      <a class="card" href="https://hemingwayapp.com" target="_blank" data-tag="escritura">
+        <div class="card-icon">🖊️</div>
+        <div class="card-body">
+          <div class="card-title">Hemingway App</div>
+          <div class="card-desc">Simplifica y mejora tu escritura</div>
+          <span class="card-tag">Escritura</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.overleaf.com" target="_blank" data-tag="escritura matemáticas">
+        <div class="card-icon">📐</div>
+        <div class="card-body">
+          <div class="card-title">Overleaf</div>
+          <div class="card-desc">Editor LaTeX para documentos científicos</div>
+          <span class="card-tag">Escritura</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- INVESTIGACIÓN Y BIBLIOTECAS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="icon">🔬</div>
+      <h2>Investigación y Bibliotecas</h2>
+      <span class="count">5 recursos</span>
+    </div>
+    <div class="resource-grid">
+      <a class="card" href="https://scholar.google.com" target="_blank" data-tag="investigación biblioteca">
+        <div class="card-icon">🎓</div>
+        <div class="card-body">
+          <div class="card-title">Google Scholar</div>
+          <div class="card-desc">Búsqueda de artículos y tesis académicas</div>
+          <span class="card-tag">Investigación</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.semanticscholar.org" target="_blank" data-tag="investigación">
+        <div class="card-icon">🧠</div>
+        <div class="card-body">
+          <div class="card-title">Semantic Scholar</div>
+          <div class="card-desc">IA para encontrar papers relevantes</div>
+          <span class="card-tag">Investigación</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.redalyc.org" target="_blank" data-tag="investigación biblioteca">
+        <div class="card-icon">📖</div>
+        <div class="card-body">
+          <div class="card-title">Redalyc</div>
+          <div class="card-desc">Revistas científicas latinoamericanas</div>
+          <span class="card-tag">Biblioteca</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.scielo.org" target="_blank" data-tag="investigación biblioteca">
+        <div class="card-icon">🌿</div>
+        <div class="card-body">
+          <div class="card-title">SciELO</div>
+          <div class="card-desc">Biblioteca científica electrónica en línea</div>
+          <span class="card-tag">Biblioteca</span>
+        </div>
+      </a>
+      <a class="card" href="https://archive.org" target="_blank" data-tag="biblioteca">
+        <div class="card-icon">🏛️</div>
+        <div class="card-body">
+          <div class="card-title">Internet Archive</div>
+          <div class="card-desc">Millones de libros y medios digitales</div>
+          <span class="card-tag">Biblioteca</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MATEMÁTICAS Y CIENCIAS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="icon">📐</div>
+      <h2>Matemáticas y Ciencias</h2>
+      <span class="count">5 recursos</span>
+    </div>
+    <div class="resource-grid">
+      <a class="card" href="https://www.wolframalpha.com" target="_blank" data-tag="matemáticas">
+        <div class="card-icon">∑</div>
+        <div class="card-body">
+          <div class="card-title">Wolfram Alpha</div>
+          <div class="card-desc">Motor de cómputo matemático y científico</div>
+          <span class="card-tag">Matemáticas</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.desmos.com/calculator" target="_blank" data-tag="matemáticas">
+        <div class="card-icon">📈</div>
+        <div class="card-body">
+          <div class="card-title">Desmos</div>
+          <div class="card-desc">Graficadora interactiva en línea</div>
+          <span class="card-tag">Matemáticas</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.geogebra.org" target="_blank" data-tag="matemáticas">
+        <div class="card-icon">📏</div>
+        <div class="card-body">
+          <div class="card-title">GeoGebra</div>
+          <div class="card-desc">Geometría, álgebra y cálculo interactivo</div>
+          <span class="card-tag">Matemáticas</span>
+        </div>
+      </a>
+      <a class="card" href="https://phet.colorado.edu/es" target="_blank" data-tag="matemáticas">
+        <div class="card-icon">🔭</div>
+        <div class="card-body">
+          <div class="card-title">PhET Simulations</div>
+          <div class="card-desc">Simulaciones de física, química y más</div>
+          <span class="card-tag">Matemáticas</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.symbolab.com" target="_blank" data-tag="matemáticas">
+        <div class="card-icon">🔢</div>
+        <div class="card-body">
+          <div class="card-title">Symbolab</div>
+          <div class="card-desc">Resuelve ecuaciones paso a paso</div>
+          <span class="card-tag">Matemáticas</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- PROGRAMACIÓN -->
+  <section class="section" id="cursos">
+    <div class="section-header">
+      <div class="icon">💻</div>
+      <h2>Programación y Tecnología</h2>
+      <span class="count">5 recursos</span>
+    </div>
+    <div class="resource-grid">
+      <a class="card" href="https://github.com" target="_blank" data-tag="programación">
+        <div class="card-icon">🐙</div>
+        <div class="card-body">
+          <div class="card-title">GitHub</div>
+          <div class="card-desc">Repositorios de código y colaboración</div>
+          <span class="card-tag">Programación</span>
+        </div>
+      </a>
+      <a class="card" href="https://replit.com" target="_blank" data-tag="programación">
+        <div class="card-icon">⚙️</div>
+        <div class="card-body">
+          <div class="card-title">Replit</div>
+          <div class="card-desc">IDE en la nube para cualquier lenguaje</div>
+          <span class="card-tag">Programación</span>
+        </div>
+      </a>
+      <a class="card" href="https://developer.mozilla.org/es" target="_blank" data-tag="programación">
+        <div class="card-icon">🦊</div>
+        <div class="card-body">
+          <div class="card-title">MDN Web Docs</div>
+          <div class="card-desc">Referencia oficial de HTML, CSS y JS</div>
+          <span class="card-tag">Programación</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.freecodecamp.org/espanol" target="_blank" data-tag="programación">
+        <div class="card-icon">🔥</div>
+        <div class="card-body">
+          <div class="card-title">freeCodeCamp</div>
+          <div class="card-desc">Cursos gratuitos de desarrollo web</div>
+          <span class="card-tag">Programación</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.codecademy.com" target="_blank" data-tag="programación">
+        <div class="card-icon">🎮</div>
+        <div class="card-body">
+          <div class="card-title">Codecademy</div>
+          <div class="card-desc">Aprende a programar de forma interactiva</div>
+          <span class="card-tag">Programación</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="icon">🌐</div>
+      <h2>Idiomas y Comunicación</h2>
+      <span class="count">4 recursos</span>
+    </div>
+    <div class="resource-grid">
+      <a class="card" href="https://www.duolingo.com" target="_blank" data-tag="idiomas">
+        <div class="card-icon">🦜</div>
+        <div class="card-body">
+          <div class="card-title">Duolingo</div>
+          <div class="card-desc">Aprende idiomas de forma gamificada</div>
+          <span class="card-tag">Idiomas</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.deepl.com/translator" target="_blank" data-tag="idiomas escritura">
+        <div class="card-icon">🌍</div>
+        <div class="card-body">
+          <div class="card-title">DeepL Traductor</div>
+          <div class="card-desc">Traducción precisa con IA</div>
+          <span class="card-tag">Idiomas</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.wordreference.com" target="_blank" data-tag="idiomas">
+        <div class="card-icon">📒</div>
+        <div class="card-body">
+          <div class="card-title">WordReference</div>
+          <div class="card-desc">Diccionario y foros de idiomas</div>
+          <span class="card-tag">Idiomas</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.bbc.co.uk/learningenglish" target="_blank" data-tag="idiomas">
+        <div class="card-icon">📻</div>
+        <div class="card-body">
+          <div class="card-title">BBC Learning English</div>
+          <div class="card-desc">Recursos gratuitos para inglés</div>
+          <span class="card-tag">Idiomas</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ CONCLUSIONES ═══ -->
+  <section class="conclusions" id="conclusiones">
+    <h2>📌 Conclusiones del equipo</h2>
+    <p>
+      <strong>¿Cuál es la utilidad de las etiquetas básicas de HTML?</strong>
+    </p>
+    <p>
+      Las etiquetas HTML son los bloques fundamentales con los que se construye cualquier sitio web. Cada etiqueta tiene un propósito semántico específico que va más allá de la apariencia visual: le indica al navegador y a los motores de búsqueda <strong>qué tipo de contenido</strong> representa cada elemento.
+    </p>
+    <p>
+      La etiqueta <strong>&lt;header&gt;</strong> agrupa el encabezado principal de la página, generalmente con el logo y la navegación. El <strong>&lt;nav&gt;</strong> define el bloque de enlaces de navegación, facilitando la accesibilidad. El <strong>&lt;main&gt;</strong> contiene el contenido central y único de la página. Las etiquetas <strong>&lt;section&gt;</strong> y <strong>&lt;article&gt;</strong> organizan el contenido en bloques temáticos. Finalmente, el <strong>&lt;footer&gt;</strong> agrupa la información de cierre, como créditos y contacto.
+    </p>
+    <p>
+      Usar correctamente estas etiquetas mejora el <strong>SEO</strong> (posicionamiento en buscadores), la <strong>accesibilidad</strong> para personas con discapacidad, y la <strong>mantenibilidad</strong> del código para cualquier desarrollador que trabaje en el proyecto.
+    </p>
+    <div class="tag-list">
+      <span><strong>#</strong> Semántica HTML</span>
+      <span><strong>#</strong> Accesibilidad</span>
+      <span><strong>#</strong> Estructura web</span>
+      <span><strong>#</strong> SEO</span>
+      <span><strong>#</strong> Buenas prácticas</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>Organizador Universitario &copy; 2025 &mdash; Proyecto de <strong>Maquetado HTML</strong></p>
+  <p style="margin-top:0.4rem;">Hecho con HTML, CSS y JavaScript puro &bull; <a href="#recursos">Volver arriba ↑</a></p>
+</footer>
+
+<script>
+  let activeTag = 'all';
+
+  function filterCards() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const title = card.querySelector('.card-title').textContent.toLowerCase();
+      const desc  = card.querySelector('.card-desc').textContent.toLowerCase();
+      const tag   = (card.dataset.tag || '').toLowerCase();
+
+      const matchSearch = !query || title.includes(query) || desc.includes(query);
+      const matchTag    = activeTag === 'all' || tag.includes(activeTag);
+
+      card.classList.toggle('hidden', !(matchSearch && matchTag));
+    });
+  }
+
+  function filterByTag(tag, btn) {
+    activeTag = tag;
+    document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCards();
+  }
+</script>
+</body>
+</html>
