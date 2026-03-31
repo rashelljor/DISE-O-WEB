@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenshell Hub — ENTRETENIMEINTO</title>
+  <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='central' font-size='80'>🔴</text></svg>"
+    />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: #FFF6F6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 35px;
+      background-color: #0e0e0e;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #FFF6F6;
+    }
+
+    .logo span {
+      color: #DB1A1A;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      color: #8CC7C4;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: #FFF6F6;
+    }
+    .quick-buttons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 16px;
+    }
+    .quick-buttons .btn {
+      display: inline-block;
+      padding: 6px 10px;
+      background-color: #DB1A1A;
+      color: #0e0e0e;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .quick-buttons .btn:hover {
+      background-color: #e15b5b;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px 50px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #DB1A1A33 0%, transparent 70%);
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin: 0 0 12px;
+      color: #FFF6F6;
+      line-height: 1.1;
+    }
+
+    .hero h2 span {
+      color: #DB1A1A;
+    }
+
+    .hero p {
+      color: #8CC7C4;
+      font-size: 15px;
+      margin: 0 0 30px;
+    }
+
+    .hero input {
+      width: 340px;
+      padding: 12px 20px;
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #FFF6F6;
+      font-size: 14px;
+    }
+
+    .hero input:focus {
+      outline: none;
+      border-color: #DB1A1A;
+    }
+
+    .hero input::placeholder {
+      color: #555;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 50px 20px 70px;
+    }
+
+    .categoria {
+      margin-bottom: 55px;
+    }
+
+    .categoria h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #DB1A1A;
+      margin: 0 0 20px;
+      padding-left: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background-color: #141414;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 20px 18px;
+      text-decoration: none;
+      color: #FFF6F6;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.2s, background-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: #DB1A1A;
+      transform: scaleY(0);
+      transition: transform 0.2s;
+      border-radius: 10px 0 0 10px;
+    }
+
+    .card:hover {
+      border-color: #333;
+      background-color: #1c1c1c;
+    }
+
+    .card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .card .top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .card .icon {
+      font-size: 30px;
+      width: 52px;
+      height: 52px;
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card .name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #FFF6F6;
+    }
+
+    .card .tag {
+      display: inline-block;
+      font-size: 10px;
+      background-color: #DB1A1A22;
+      color: #DB1A1A;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card .desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+      border-top: 1px solid #1f1f1f;
+      padding-top: 12px;
+    }
+
+    .card.oculto {
+      display: none;
+    }
+
+    /* ── CONCLUSIONES ── */
+    .conclusiones {
+      background-color: #141414;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+
+    .conclusiones h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #8CC7C4;
+      margin: 0 0 16px;
+    }
+
+    .conclusiones p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #999;
+    }
+
+    .conclusiones strong {
+      color: #FFF6F6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid #1a1a1a;
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #444;
+    }
+
+    .full-width-image {
+      width: 100%;
+      max-height: 360px;
+      overflow: hidden;
+    }
+    .full-width-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    footer a {
+      color: #8CC7C4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- CABECERA -->
+<header>
+  <div class="logo">
+    Kenshell <span>Hub</span>
+    <small>Entretenimiento</small>
+  </div>
+  <nav>
+    <a href="#streaming">Streaming</a>
+    <a href="#video">Video</a>
+    <a href="#social">Social</a>
+    <a href="#conclusiones">Conclusiones</a>
+  </nav>
+  <div class="quick-buttons">
+    <a class="btn" href="index0001.html">KSH🔵</a>
+    <a class="btn" href="index0002.html">KSH🟣</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Mi zona de<br><span>Entretenimiento</span></h2>
+  <p>Todas mis plataformas favoritas</p>
+  <input type="text" id="buscador" placeholder="Buscar plataforma... (●'◡'●)" oninput="buscar()">
+</div>
+
+<!-- CONTENIDO -->
+<main>
+
+    <!-- IMAGEN FULL-WIDTH -->
+<section class="full-width-image">
+  <img src="assets/img01.jpg" alt="Imagen de portada" />
+</section>
+
+<br><br><br>
+
+  <!-- STREAMING -->
+  <section class="categoria" id="streaming">
+    <h3>Streaming</h3>
+    <div class="grid">
+
+      <a class="card" href="https://www.netflix.com" target="_blank">
+        <div class="top">
+          <div class="icon">🎞️</div>
+          <div>
+            <div class="name">Netflix</div>
+            <span class="tag">Streaming</span>
+          </div>
+        </div>
+        <div class="desc">Series, películas y documentales originales</div>
+      </a>
+
+      <a class="card" href="https://www.crunchyroll.com" target="_blank">
+        <div class="top">
+          <div class="icon">🍥</div>
+          <div>
+            <div class="name">Crunchyroll</div>
+            <span class="tag">Anime</span>
+          </div>
+        </div>
+        <div class="desc">El catálogo de anime más grande del mundo</div>
+      </a>
+
+      <a class="card" href="https://www.directvgo.com" target="_blank">
+        <div class="top">
+          <div class="icon">📡</div>
+          <div>
+            <div class="name">DirecTV GO</div>
+            <span class="tag">TV en vivo</span>
+          </div>
+        </div>
+        <div class="desc">Televisión en vivo, deportes y series</div>
+      </a>
+
+      <a class="card" href="https://open.spotify.com/search/yugorcito%20remix" target="_blank">
+        <div class="top">
+          <div class="icon">🎶</div>
+          <div>
+            <div class="name">Spotify</div>
+            <span class="tag">Música</span>
+          </div>
+        </div>
+        <div class="desc">La mejor música del mundo</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="categoria" id="video">
+    <h3>Video</h3>
+    <div class="grid">
+
+      <a class="card" href="https://www.youtube.com" target="_blank">
+        <div class="top">
+          <div class="icon">📺</div>
+          <div>
+            <div class="name">YouTube</div>
+            <span class="tag">Video</span>
+          </div>
+        </div>
+        <div class="desc">Videos, tutoriales, música y transmisiones en vivo</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- REDES SOCIALES -->
+  <section class="categoria" id="social">
+    <h3>Redes Sociales</h3>
+    <div class="grid">
+
+      <a class="card" href="https://www.tiktok.com" target="_blank">
+        <div class="top">
+          <div class="icon">🎵</div>
+          <div>
+            <div class="name">TikTok</div>
+            <span class="tag">Social</span>
+          </div>
+        </div>
+        <div class="desc">Videos cortos, tendencias y creadores de contenido</div>
+      </a>
+
+    </div>
+  </section>
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+  <p>Kenshell Hub &copy; 2026 &mdash; Entretenimiento &nbsp;|&nbsp; <a href="#">Volver arriba ↑</a></p>
+</footer>
+
+<!-- BÚSQUEDA -->
+<script>
+  function buscar() {
+    var texto = document.getElementById('buscador').value.toLowerCase();
+    var tarjetas = document.querySelectorAll('.card');
+
+    for (var i = 0; i < tarjetas.length; i++) {
+      var nombre = tarjetas[i].querySelector('.name').textContent.toLowerCase();
+      var descripcion = tarjetas[i].querySelector('.desc').textContent.toLowerCase();
+
+      if (nombre.includes(texto) || descripcion.includes(texto)) {
+        tarjetas[i].classList.remove('oculto');
+      } else {
+        tarjetas[i].classList.add('oculto');
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
