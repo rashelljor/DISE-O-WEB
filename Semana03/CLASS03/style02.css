@@ -1,0 +1,62 @@
+img[alt]{
+    border-radius: 60%
+}
+
+input[type="radio"]{
+    margin:15px
+}
+
+a[href="https://www.doggies.com/"]{
+    color: rgb(209,13,46);
+    text-decoration: none;
+    font-weight: bold;
+} 
+
+.lista-1{
+    color: gray;
+}
+
+h3{
+    font-size: 40px;
+}
+
+.box{
+    width: calc(50% + 50px);
+    height: 550px;
+    background: linear-gradient(to right, white, red);
+}
+
+.text::before {
+    content: "INICIO : ";
+    color: gray
+}
+.text::after {
+    content: " (FIN de un mundo Enfermo)";
+    color: gray
+}
+
+.note{
+    position: relative;
+    padding: 20px;
+    background-color: green;
+    color: white;
+
+}
+.note::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 16px 16px 0;
+    border-color: greenyellow white;
+}
+
+:root{
+    --primary-color: #475e6e;
+    --padding-size: 50px;
+}
+
+button {
+    background-color: var(--primary-color);
+    padding: var(--padding-size); 
+}
