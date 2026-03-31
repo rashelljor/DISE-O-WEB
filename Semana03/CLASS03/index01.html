@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Tontinental</title>
+    <link rel="icon" type="image/png" href="img/img01.png" alt="Icono de pestaña" />
+</head>
+
+<style>
+    /* Estilos para el header */
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f8f8f8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-area {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-area p {
+        margin-left: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .nav-menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        gap: 10px;
+    }
+
+    .nav-menu li {
+        position: relative;
+        margin-right: 0;
+        white-space: nowrap;
+        font-size: 13px;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .btn-solicita {
+        background-color: #007BFF;
+        color: white !important;
+        padding: 8px 12px;
+        border-radius: 4px;
+    }
+
+    /* Estilos para el mega menú */
+    .mega-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 600px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    .dropdown:hover .mega-menu {
+        display: block;
+    }
+
+    .mega-menu .column {
+        width: 25%;
+        float: left;
+    }
+
+    .mega-menu h3 {
+        margin-top: 0;
+    }
+
+    .mega-menu a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Estilos para el main */
+    main {
+        margin-top: 80px;
+        /* Ajusta según la altura del header */
+    }
+
+    /* Estilos para la sección flexible */
+    .hero-section {
+        display: flex;
+        align-items: center;
+        min-height: 500px;
+        background-color: #f8f8f8;
+    }
+
+    .hero-left {
+        flex: 1;
+        padding: 40px;
+        background-color: #7c3aed;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .hero-left p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .hero-left .btn {
+        background-color: white;
+        color: #7c3aed;
+        padding: 12px 30px;
+        border-radius: 25px;
+        border: none;
+        font-weight: bold;
+        width: fit-content;
+        cursor: pointer;
+        margin-bottom: 30px;
+    }
+
+    .hero-left .indicators {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .hero-left .indicator-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+    }
+
+    .hero-left .indicator-dot.active {
+        background-color: white;
+    }
+
+    .hero-left .nav-arrows {
+        display: flex;
+        gap: 15px;
+    }
+
+    .hero-left .arrow {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .hero-right {
+        flex: 1;
+        color: white;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    .hero-right::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(26, 26, 46, 0.6);
+        z-index: 1;
+    }
+
+    .hero-right>* {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-right img {
+        display: none;
+    }
+
+    .hero-right h3 {
+        font-size: 32px;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    .hero-right .subtitle {
+        font-size: 14px;
+        color: #bbb;
+        margin-bottom: 30px;
+    }
+
+    .hero-right .cta-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-right .cta-label {
+        font-size: 12px;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+
+    .hero-right .whatsapp {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+    }
+</style>
+
+<body>
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="img/img02.png" width="170" height="45" alt="Logo">
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li class="dropdown">
+                    <a href="#conocenos" class="dropbtn">Conócenos <span class="arrow">▾</span></a>
+                    <div class="mega-menu">
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/por-que-continental/nuestra-historia/">
+                                <h3>Nosotros</h3>
+                            </a>
+                            <a href="https://ucontinental.edu.pe/por-que-continental/nuestra-historia/">Nuestra
+                                historia</a>
+                            <a href="https://ucontinental.edu.pe/por-que-continental/nuestra-filosofia/">Nuestra
+                                filosofía</a>
+                            <a href="https://ucontinental.edu.pe/por-que-continental/nuestra-promesa/">Nuestra
+                                promesa</a>
+                            <a href="https://ucontinental.edu.pe/por-que-continental/nuestro-modelo-educativo/">Nuestro
+                                modelo educativo</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/por-que-continental/logros/">
+                                <h3>Nuestros logros</h3>
+                            </a>
+                            <a href="https://ucontinental.edu.pe/por-que-continental/logros/">Ver todo →</a>
+                        </div>
+                        <div class="column">
+                            <h3>Autoridades</h3>
+                            <a href="https://ucontinental.edu.pe/autoridades/">Ver todo →</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">
+                                <h3>Transparencia</h3>
+                            </a>
+                            <a
+                                href="https://ucontinental.edu.pe/documentos/informacion_institucional/estatuto-universitario-uc.pdf">Estatuto
+                                universitario</a>
+                            <a
+                                href="https://ucontinental.edu.pe/informacion-institucional/reglamentos-de-la-universidad/">Reglamento
+                                del estudiante</a>
+                            <a
+                                href="https://ucontinental.edu.pe/documentos/informacion_institucional/plan-estrategico.pdf">Plan
+                                estratégico institucional</a>
+                            <a href="https://ucontinental.edu.pe/sistema-calidad/">Sistema de gestión de calidad</a>
+                            <a href="https://ucontinental.edu.pe/sostenibilidad/">Sostenibilidad y responsabilidad
+                                Social</a>
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#carreras" class="dropbtn">Carreras y programas <span class="arrow">▾</span></a>
+                    <div class="mega-menu">
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/admision/">
+                                <h3>Admisión</h3>
+                            </a>
+                            <a href="https://ucontinental.edu.pe/admision/">Postula</a>
+                            <a href="https://ucontinental.edu.pe/razones/">Razones para estudiar en la UC</a>
+                            <a href="https://ucontinental.edu.pe/becas/">Becas y financiamiento</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/carrera/">
+                                <h3>Modalidades de estudio</h3>
+                            </a>
+                            <a href="https://ucontinental.edu.pe/carrera/">Modalidad Presencial</a>
+                            <a href="https://semipresencial.ucontinental.edu.pe/">Modalidad Semipresencial</a>
+                            <a href="https://distancia.ucontinental.edu.pe/">Modalidad a Distancia</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/carrera/#carreras">
+                                <h3>Pregrado</h3>
+                            </a>
+                            <a href="https://ucontinental.edu.pe/carrera/ingenieria/">Facultad de ingeniería</a>
+                            <a href="https://ucontinental.edu.pe/carrera/ciencias-salud/">Faculdad de ciencias de la
+                                salud</a>
+                            <a href="https://ucontinental.edu.pe/carrera/ciencias-empresa/">Facultad de ciencias de la
+                                empresa</a>
+                            <a href="https://ucontinental.edu.pe/carrera/#HUM">Facultad de ciencias sociales</a>
+                            <a href="https://ucontinental.edu.pe/carrera/#DER">Facultad de derecho</a>
+                            <a href="https://ucontinental.edu.pe/carrera/psicologia/">Facultad de psicología</a>
+                        </div>
+                        <div class="column">
+                            <a href="">
+                                <h3>Posgrado</h3>
+                            </a>
+                            <a href="">
+                                <h3>Educación contínua</h3>
+                            </a>
+                            <a href="">
+                                <h3>Centro de idiomas</h3>
+                            </a>
+                            <a href="">
+                                <h3>Instituto Continental</h3>
+                            </a>
+                            <a href="">
+                                <h3>Continental Florida University</h3>
+                            </a>
+                            <a href="">
+                                <h3>Continental University of Mexico</h3>
+                            </a>
+                            <a href="">
+                                <h3>Continental International Universities</h3>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#internacional" class="dropbtn">Internacional <span class="arrow">▾</span></a>
+                    <div class="mega-menu">
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#investigacion" class="dropbtn">Investigación y centros<span class="arrow">▾</span></a>
+                    <div class="mega-menu">
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#experiencia" class="dropbtn">Experiencia UC <span class="arrow">▾</span></a>
+                    <div class="mega-menu">
+                        <div class="column">
+                            <a href="https://ucontinental.edu.pe/informacion-institucional/">Ver más →</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://ucontinental.edu.pe/#formulario" class="btn-solicita">Solicita información</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-left">
+                <h2>Tu camino hacia un futuro internacional</h2>
+                <p>Desarrolla habilidades tecnológicas y conecta con oportunidades internacionales.</p>
+                <button class="btn">Conoce más aquí</button>
+                <div class="indicators">
+                    <div class="indicator-dot active"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                </div>
+                <div class="nav-arrows">
+                    <span class="arrow">←</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <div class="hero-right" style="background-image: url('img/img03.png');">
+                <h3>TE ACERCAMOS EL MUNDO</h3>
+                <div class="subtitle">ELIGE UN FUTURO INTERNACIONAL</div>
+                <div class="cta-section">
+                    <div class="cta-label">POSTULA AHORA</div>
+                    <div class="whatsapp">971115546</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <img src="" alt="">
+            <h3>Solicita Informacion</h3>
+            <h4>Tu eliges como estudiar</h4>
+            <form>
+                <div>
+                    <label for="modalidades">Modalidad de estudio</label><br>
+                    <select id="modalidades">
+                        <option value="presencial">Presencial</option>
+                        <option value="presencial">SemiPresencial</option>
+                        <option value="presencial">a Distancia</option>
+                </div>
+                <div>
+                    <label for="nombre ">Nombres </label>
+                    <input type="text" id="nombre" placeholder="Nombres  ">
+                </div>
+                <div>
+                    <label for="apellido ">Apellidos </label>
+                    <input type="text" id="apellido" placeholder="Apellidos ">
+                </div>
+                <div>
+                    <label for="fecha Nacimiento ">Fecha Nacimiento </label>
+                    <input type="date" id="fecha Nacimiento">
+                </div>
+                <div>
+                    <label for="correo ">Correo Electrónico </label>
+                    <input type="email" id="correo" placeholder="Correo Electrónico ">
+                </div>
+                <div>
+                    <label for="Celular ">Celular </label>
+                    <input type="text" id="Celular" placeholder="Celular ">
+                </div>
+                <Button>Siguiente</Button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h3>Campus</h3>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Campus Huancayo</a>
+                    </li>
+                    <li>
+                        <a href="#">Campus Arequipa</a>
+                    </li>
+                    <li>
+                        <a href="#">Campus Cusco</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <footer>
+            <section>
+                <h3>Servicios</h3>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Hub de informacion</a>
+                        </li>
+                        <li>
+                            <a href="#">Grow Center</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+            <section>
+                <h3>Politica de Privacidad</h3>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Hub de informacion</a>
+                        </li>
+                        <li>
+                            <a href="#">Grow Center</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+            <section>
+                <h3>Carreras</h3>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Carreras de Pregrado</a>
+                        </li>
+                        <li>
+                            <a href="#">Carreras de Posgrado</a>
+                        </li>
+                        <li>
+                            <a href="#">Carreras de Doctorado</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+            <section>
+                <h3>Mas Informacion</h3>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Portal Estudiante</a>
+                        </li>
+                        <li>
+                            <a href="#">Portal Postulante</a>
+                        </li>
+                        <li>
+                            <a href="#">Portal del Padre</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+            <hr>
+            <section>
+                <p>Universidad Continental S. A. C.</p>
+                <p>R. U. C. No 20319363221</p>
+            </section>
+        </footer>
+</body>
+
+</html>
