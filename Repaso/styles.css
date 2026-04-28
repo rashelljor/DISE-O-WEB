@@ -1,0 +1,199 @@
+/* ===== PUNTO CERO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY: grid principal ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(43, 70, 132);
+    color: rgb(219, 222, 231);
+    line-height: 1.7;
+
+    display: grid;
+    /* 2 columnas fijas: main ocupa 2/3, aside ocupa 1/3 */
+    /* Esto es más predecible que auto-fit en el body */
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* ===== HEADER Y FOOTER: ocupan TODAS las columnas ===== */
+/* grid-column: 1 / -1 = desde la columna 1 hasta la última */
+header, footer {
+    grid-column: 1 / -1;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: rgb(249, 125, 125);
+    color: rgb(7, 3, 3);
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: row;            /* → → → hijos en fila */
+    justify-content: space-between; /* h1 izq, nav der */
+    align-items: center;            /* centra verticalmente */
+    gap: 20px;
+}
+
+/* ===== NAV ===== */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(7, 3, 3);
+    font-size: 16px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: chocolate;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+/* ===== TIPOGRAFÍA ===== */
+h1 {
+    font-size: 36px;
+    color: rgb(90, 8, 8);
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    color: rgb(249, 125, 125);
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+/* ===== MAIN ===== */
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+article {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(90, 8, 8);
+}
+
+/* ===== FORMULARIO ===== */
+form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: rgb(90, 8, 8);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: chocolate;
+}
+
+/* ===== ASIDE ===== */
+aside {
+    background-color: rgb(249, 125, 125);
+    color: rgb(7, 3, 3);
+    padding: 20px;
+    border-left: 4px solid rgb(90, 8, 8);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    /* align-self: start hace que el aside no se estire 
+       hasta el final del main si el contenido es corto */
+    align-self: start;
+}
+
+aside img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: rgb(16, 2, 77);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ===== @MEDIA: pantallas de 600px o menos ===== */
+/* Todo pasa a 1 sola columna de manera confiable */
+@media (max-width: 600px) {
+
+    body {
+        grid-template-columns: 1fr; /* Una sola columna */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    /* Con 1 sola columna, 1/-1 sigue funcionando igual */
+    header, footer {
+        grid-column: 1 / -1;
+    }
+
+    header {
+        flex-direction: column; /* ↓ ↓ ↓ */
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
