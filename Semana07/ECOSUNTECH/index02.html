@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<!--
+  EcoSunTech S.A. - Sitio Web
+  Tecnología Solar para un Futuro Sostenible
+  
+  ESTRUCTURA:
+  - index.html  → Este archivo (toda la estructura HTML)
+  - style.css   → Estilos, animaciones y diseño responsivo
+  
+  PÁGINAS (navegación por ID):
+  1. #inicio    → Bienvenida y beneficios
+  2. #productos → Catálogo con tabla de especificaciones
+  3. #servicios → Servicios e instalación
+  4. #nosotros  → Historia y equipo
+  5. #contacto  → Formulario de cotización
+-->
+<html lang="es">
+
+<head>
+  <!-- ═══════════════════════════════════════════════
+       METADATOS - Mejoran SEO y comportamiento del sitio
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Codificación de caracteres: permite tildes y ñ -->
+  <meta charset="UTF-8">
+
+  <!-- Viewport: hace el sitio responsivo en móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Descripción que aparece en Google -->
+  <meta name="description" content="EcoSunTech S.A. - Empresa líder en venta e instalación de paneles solares, inversores, baterías y sistemas de energía solar residencial y comercial.">
+
+  <!-- Palabras clave para motores de búsqueda -->
+  <meta name="keywords" content="paneles solares, energía solar, inversores, baterías solares, instalación solar, energía renovable, EcoSunTech">
+
+  <!-- Autor del sitio -->
+  <meta name="author" content="EcoSunTech S.A.">
+
+  <!-- Open Graph: cómo se ve al compartir en redes sociales -->
+  <meta property="og:title" content="EcoSunTech - Energía Solar Sostenible">
+  <meta property="og:description" content="Soluciones solares para hogares y empresas. Paneles, inversores y baterías de alta calidad.">
+  <meta property="og:type" content="website">
+
+  <!-- Título de la pestaña del navegador -->
+  <title>EcoSunTech S.A. | Energía Solar Sostenible</title>
+
+  <!-- Vinculación con el archivo de estilos externo -->
+  <link rel="stylesheet" href="styles02.css">
+
+  <!-- Fuentes de Google Fonts: Montserrat (títulos) + Source Sans 3 (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       ENCABEZADO Y NAVEGACIÓN PRINCIPAL
+       ═══════════════════════════════════════════════ -->
+  <header class="site-header">
+
+    <!-- Logo con SVG animado (sol girando) -->
+    <div class="logo">
+      <!-- SVG: Gráfico vectorial escalable, no pixela en ningún tamaño -->
+      <svg class="logo-svg" viewBox="0 0 60 60" width="50" height="50" aria-label="Logo EcoSunTech">
+        <!-- Rayos del sol: grupo que rota con animación CSS -->
+        <g class="sol-rayos">
+          <line x1="30" y1="2"  x2="30" y2="12" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+          <line x1="30" y1="48" x2="30" y2="58" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+          <line x1="2"  y1="30" x2="12" y2="30" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+          <line x1="48" y1="30" x2="58" y2="30" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+          <line x1="9"  y1="9"  x2="16" y2="16" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="44" y1="44" x2="51" y2="51" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="51" y1="9"  x2="44" y2="16" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="9"  y1="51" x2="16" y2="44" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <!-- Círculo central del sol -->
+        <circle cx="30" cy="30" r="10" fill="#F5A623"/>
+        <!-- Panel solar decorativo debajo -->
+        <rect x="18" y="42" width="24" height="14" rx="2" fill="#1a6b3c"/>
+        <line x1="30" y1="42" x2="30" y2="56" stroke="#fff" stroke-width="1"/>
+        <line x1="18" y1="49" x2="42" y2="49" stroke="#fff" stroke-width="1"/>
+      </svg>
+      <!-- Nombre de la empresa -->
+      <span class="logo-texto"><span class="logo-eco">Eco</span>SunTech</span>
+    </div>
+
+    <!-- Menú de navegación principal -->
+    <!-- role="navigation" mejora accesibilidad para lectores de pantalla -->
+    <nav role="navigation" aria-label="Menú principal">
+      <ul class="nav-lista">
+        <li><a href="#inicio"    class="nav-link">Inicio</a></li>
+        <li><a href="#productos" class="nav-link">Productos</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#nosotros"  class="nav-link">Nosotros</a></li>
+        <li><a href="#contacto"  class="nav-link nav-cta">Cotizar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN 1: INICIO / HERO
+       ═══════════════════════════════════════════════ -->
+  <section id="inicio" class="seccion-hero">
+
+    <!-- Animación SVG de fondo: ondas de energía -->
+    <svg class="hero-bg-svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <!-- aria-hidden="true" oculta elementos decorativos a lectores de pantalla -->
+      <defs>
+        <!-- Gradiente lineal del fondo -->
+        <linearGradient id="grad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   style="stop-color:#0a2e1a"/>
+          <stop offset="100%" style="stop-color:#1a6b3c"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="400" fill="url(#grad-hero)"/>
+      <!-- Círculos pulsantes que representan energía solar -->
+      <circle cx="200" cy="200" r="80"  fill="none" stroke="#F5A623" stroke-width="1" opacity="0.3" class="pulso-1"/>
+      <circle cx="200" cy="200" r="120" fill="none" stroke="#F5A623" stroke-width="1" opacity="0.2" class="pulso-2"/>
+      <circle cx="200" cy="200" r="160" fill="none" stroke="#F5A623" stroke-width="1" opacity="0.1" class="pulso-3"/>
+      <!-- Sol grande decorativo -->
+      <circle cx="200" cy="200" r="50" fill="#F5A623" opacity="0.15"/>
+      <circle cx="200" cy="200" r="30" fill="#F5A623" opacity="0.4"/>
+    </svg>
+
+    <!-- Contenido principal del hero -->
+    <div class="hero-contenido">
+      <h1 class="hero-titulo">
+        Energía Solar<br>
+        <span class="titulo-acento">Para Tu Hogar y Empresa</span>
+      </h1>
+      <p class="hero-descripcion">
+        Soluciones solares completas: paneles, inversores y baterías de alta eficiencia.
+        Reduce tu factura eléctrica y cuida el planeta.
+      </p>
+      <div class="hero-botones">
+        <a href="#productos" class="btn btn-primario">Ver Productos</a>
+        <a href="#contacto"  class="btn btn-secundario">Solicitar Cotización</a>
+      </div>
+    </div>
+
+    <!-- Imagen de panel solar con mapa de imagen -->
+    <!-- <picture> sirve para imágenes adaptativas según el tamaño de pantalla -->
+    <figure class="hero-figura">
+      <picture>
+        <!-- En pantallas pequeñas (<600px) se mostraría una versión recortada -->
+        <!-- Como usamos placeholder, usamos el mismo para ambos -->
+        <source media="(max-width: 600px)"
+                srcset="https://placehold.co/400x300/1a6b3c/F5A623?text=Panel+Solar">
+        <!-- Imagen por defecto para pantallas grandes -->
+        <img src="https://placehold.co/500x350/0a2e1a/F5A623?text=Sistema+Solar+EcoSunTech"
+             alt="Sistema solar residencial instalado por EcoSunTech"
+             width="500" height="350"
+             class="hero-imagen"
+             usemap="#mapa-solar">
+      </picture>
+      <!-- figcaption: descripción visible de la imagen -->
+      <figcaption class="figura-pie">Sistema solar residencial — 10 kWp instalado</figcaption>
+
+      <!-- Mapa de imagen: zonas clicables sobre la imagen -->
+      <!-- Permite hacer clic en partes específicas de la imagen -->
+      <map name="mapa-solar">
+        <!-- Area rectangular: coords = izq, arriba, der, abajo -->
+        <area shape="rect"   coords="10,10,200,150"
+              href="#productos"
+              alt="Ver paneles solares"
+              title="🔲 Clic para ver paneles solares">
+        <!-- Area circular: coords = cx, cy, radio -->
+        <area shape="circle" coords="350,100,60"
+              href="#contacto"
+              alt="Solicitar cotización"
+              title="☀️ Clic para cotizar">
+        <!-- Area poligonal: pares de coordenadas x,y -->
+        <area shape="poly"   coords="200,200,400,200,400,320,200,320"
+              href="#servicios"
+              alt="Ver servicios de instalación"
+              title="⚡ Clic para ver servicios">
+      </map>
+    </figure>
+
+    <!-- Métricas destacadas -->
+    <div class="metricas">
+      <div class="metrica">
+        <span class="metrica-numero">500+</span>
+        <span class="metrica-label">Instalaciones</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-numero">25</span>
+        <span class="metrica-label">Años de garantía</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-numero">80%</span>
+        <span class="metrica-label">Ahorro en luz</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-numero">0</span>
+        <span class="metrica-label">Emisiones CO₂</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN 2: PRODUCTOS
+       ═══════════════════════════════════════════════ -->
+  <section id="productos" class="seccion seccion-clara">
+    <div class="contenedor">
+
+      <h2 class="seccion-titulo">Nuestros Productos</h2>
+      <p class="seccion-subtitulo">Equipamiento solar de primera calidad para cada necesidad</p>
+
+      <!-- Tarjetas de productos con figure/figcaption -->
+      <div class="productos-grid">
+
+        <!-- Producto 1: Paneles Solares -->
+        <article class="producto-card">
+          <figure class="producto-figura">
+            <!-- picture con versiones para diferentes resoluciones -->
+            <picture>
+              <source media="(max-width: 480px)"
+                      srcset="https://placehold.co/280x200/1a6b3c/ffffff?text=Panel">
+              <img src="https://placehold.co/320x220/1a6b3c/ffffff?text=Paneles+Solares"
+                   alt="Paneles solares monocristalinos de alta eficiencia"
+                   width="320" height="220"
+                   loading="lazy">
+              <!-- loading="lazy": carga la imagen solo cuando el usuario la ve -->
+            </picture>
+            <figcaption>Panel monocristalino 450W</figcaption>
+          </figure>
+          <div class="producto-info">
+            <h3>Paneles Solares</h3>
+            <p>Paneles monocristalinos y policristalinos de alta eficiencia con tecnología PERC. Máximo rendimiento incluso en días nublados.</p>
+            <span class="producto-precio">Desde $180 USD/panel</span>
+          </div>
+        </article>
+
+        <!-- Producto 2: Inversores -->
+        <article class="producto-card">
+          <figure class="producto-figura">
+            <picture>
+              <source media="(max-width: 480px)"
+                      srcset="https://placehold.co/280x200/0a3d6b/ffffff?text=Inversor">
+              <img src="https://placehold.co/320x220/0a3d6b/ffffff?text=Inversores"
+                   alt="Inversor solar trifásico para sistemas residenciales"
+                   width="320" height="220"
+                   loading="lazy">
+            </picture>
+            <figcaption>Inversor híbrido 5kW</figcaption>
+          </figure>
+          <div class="producto-info">
+            <h3>Inversores</h3>
+            <p>Inversores string, híbridos y microinversores. Convierten la energía DC de los paneles en AC para uso doméstico.</p>
+            <span class="producto-precio">Desde $350 USD</span>
+          </div>
+        </article>
+
+        <!-- Producto 3: Baterías -->
+        <article class="producto-card">
+          <figure class="producto-figura">
+            <picture>
+              <source media="(max-width: 480px)"
+                      srcset="https://placehold.co/280x200/3d1a6b/ffffff?text=Bateria">
+              <img src="https://placehold.co/320x220/3d1a6b/ffffff?text=Baterias+Solares"
+                   alt="Batería de litio para almacenamiento de energía solar"
+                   width="320" height="220"
+                   loading="lazy">
+            </picture>
+            <figcaption>Batería LiFePO4 10kWh</figcaption>
+          </figure>
+          <div class="producto-info">
+            <h3>Baterías</h3>
+            <p>Baterías de litio LiFePO4 de larga duración. Almacena energía solar para usarla de noche o en cortes de luz.</p>
+            <span class="producto-precio">Desde $900 USD</span>
+          </div>
+        </article>
+
+        <!-- Producto 4: Accesorios -->
+        <article class="producto-card">
+          <figure class="producto-figura">
+            <picture>
+              <source media="(max-width: 480px)"
+                      srcset="https://placehold.co/280x200/6b3d0a/ffffff?text=Accesorios">
+              <img src="https://placehold.co/320x220/6b3d0a/ffffff?text=Accesorios+y+Kits"
+                   alt="Kit de montaje y accesorios para instalación solar"
+                   width="320" height="220"
+                   loading="lazy">
+            </picture>
+            <figcaption>Kit de montaje y cableado</figcaption>
+          </figure>
+          <div class="producto-info">
+            <h3>Accesorios y Kits</h3>
+            <p>Estructuras de montaje, cables solares, conectores MC4, cajas de combinación y todo lo necesario para una instalación completa.</p>
+            <span class="producto-precio">Desde $50 USD</span>
+          </div>
+        </article>
+
+      </div><!-- fin productos-grid -->
+
+      <!-- ─── TABLA DE ESPECIFICACIONES TÉCNICAS ─── -->
+      <!-- Las tablas son ideales para datos comparativos estructurados -->
+      <h3 class="tabla-titulo">Especificaciones Técnicas Comparativas</h3>
+      <div class="tabla-wrapper">
+        <!-- overflow-x: auto en CSS para que sea scrolleable en móvil -->
+        <table class="tabla-specs">
+          <!-- caption: título accesible de la tabla -->
+          <caption>Comparativa de paneles solares EcoSunTech — Temporada 2025</caption>
+
+          <!-- thead: encabezados de columna -->
+          <thead>
+            <tr>
+              <th scope="col">Modelo</th>
+              <th scope="col">Potencia</th>
+              <th scope="col">Eficiencia</th>
+              <th scope="col">Dimensiones (mm)</th>
+              <th scope="col">Garantía</th>
+              <th scope="col">Precio (USD)</th>
+              <th scope="col">Disponibilidad</th>
+            </tr>
+          </thead>
+
+          <!-- tbody: datos de la tabla -->
+          <tbody>
+            <tr>
+              <td>EST-Mono-400</td>
+              <td>400 Wp</td>
+              <td>20.5%</td>
+              <td>1722 × 1134 × 35</td>
+              <td>25 años</td>
+              <td>$165</td>
+              <td><span class="badge disponible">Disponible</span></td>
+            </tr>
+            <tr>
+              <td>EST-Mono-450</td>
+              <td>450 Wp</td>
+              <td>21.3%</td>
+              <td>1855 × 1134 × 35</td>
+              <td>25 años</td>
+              <td>$185</td>
+              <td><span class="badge disponible">Disponible</span></td>
+            </tr>
+            <tr>
+              <td>EST-Bifacial-500</td>
+              <td>500 Wp</td>
+              <td>22.1%</td>
+              <td>2094 × 1134 × 35</td>
+              <td>30 años</td>
+              <td>$230</td>
+              <td><span class="badge limitado">Stock limitado</span></td>
+            </tr>
+            <tr>
+              <td>EST-Poli-330</td>
+              <td>330 Wp</td>
+              <td>17.8%</td>
+              <td>1640 × 992 × 35</td>
+              <td>20 años</td>
+              <td>$120</td>
+              <td><span class="badge disponible">Disponible</span></td>
+            </tr>
+            <tr>
+              <td>EST-PERC-460</td>
+              <td>460 Wp</td>
+              <td>21.8%</td>
+              <td>1909 × 1134 × 35</td>
+              <td>25 años</td>
+              <td>$210</td>
+              <td><span class="badge agotado">Agotado</span></td>
+            </tr>
+          </tbody>
+
+          <!-- tfoot: totales o notas al pie de la tabla -->
+          <tfoot>
+            <tr>
+              <!-- colspan fusiona celdas horizontalmente -->
+              <td colspan="7">* Precios referenciales. Consulte disponibilidad y promociones vigentes con nuestro equipo.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div><!-- fin tabla-wrapper -->
+
+    </div><!-- fin contenedor -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN 3: SERVICIOS
+       ═══════════════════════════════════════════════ -->
+  <section id="servicios" class="seccion seccion-oscura">
+    <div class="contenedor">
+
+      <h2 class="seccion-titulo">Nuestros Servicios</h2>
+      <p class="seccion-subtitulo">Acompañamos cada proyecto desde el diseño hasta el mantenimiento</p>
+
+      <!-- Tarjetas de servicios con íconos SVG -->
+      <div class="servicios-grid">
+
+        <!-- Servicio 1 -->
+        <div class="servicio-card">
+          <!-- SVG como ícono decorativo -->
+          <svg class="servicio-icono" viewBox="0 0 60 60" width="60" height="60" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="#1a6b3c" stroke="#F5A623" stroke-width="2"/>
+            <rect x="15" y="20" width="30" height="20" rx="2" fill="#F5A623" opacity="0.9"/>
+            <line x1="20" y1="25" x2="40" y2="25" stroke="#0a2e1a" stroke-width="2"/>
+            <line x1="20" y1="30" x2="40" y2="30" stroke="#0a2e1a" stroke-width="2"/>
+            <line x1="20" y1="35" x2="35" y2="35" stroke="#0a2e1a" stroke-width="2"/>
+          </svg>
+          <h3>Diseño del Sistema</h3>
+          <p>Evaluación de tu consumo energético y diseño personalizado del sistema solar óptimo para tu hogar o empresa.</p>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="servicio-card">
+          <svg class="servicio-icono" viewBox="0 0 60 60" width="60" height="60" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="#1a6b3c" stroke="#F5A623" stroke-width="2"/>
+            <!-- Herramienta llave -->
+            <path d="M20 40 L35 25 M38 18 A8 8 0 1 1 22 34" stroke="#F5A623" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="18" r="4" fill="#F5A623"/>
+          </svg>
+          <h3>Instalación Profesional</h3>
+          <p>Técnicos certificados instalan tu sistema solar con los más altos estándares de seguridad y calidad.</p>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="servicio-card">
+          <svg class="servicio-icono" viewBox="0 0 60 60" width="60" height="60" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="#1a6b3c" stroke="#F5A623" stroke-width="2"/>
+            <!-- Gráfica de rendimiento -->
+            <polyline points="15,45 22,35 30,38 38,25 45,20"
+                      stroke="#F5A623" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="45" cy="20" r="3" fill="#F5A623"/>
+          </svg>
+          <h3>Monitoreo Remoto</h3>
+          <p>Plataforma digital para supervisar en tiempo real la producción y rendimiento de tu sistema solar.</p>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="servicio-card">
+          <svg class="servicio-icono" viewBox="0 0 60 60" width="60" height="60" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="#1a6b3c" stroke="#F5A623" stroke-width="2"/>
+            <!-- Escudo garantía -->
+            <path d="M30 15 L45 22 L45 35 Q45 45 30 50 Q15 45 15 35 L15 22 Z"
+                  fill="none" stroke="#F5A623" stroke-width="2.5"/>
+            <polyline points="23,32 28,37 38,25" stroke="#F5A623" stroke-width="3"
+                      fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Mantenimiento</h3>
+          <p>Planes de mantenimiento preventivo y correctivo para mantener tu sistema operando al 100%.</p>
+        </div>
+
+      </div><!-- fin servicios-grid -->
+
+      <!-- Testimonios de clientes -->
+      <h3 class="tabla-titulo" style="margin-top:3rem;">Lo Que Dicen Nuestros Clientes</h3>
+      <div class="testimonios-grid">
+
+        <blockquote class="testimonio">
+          <p>"Instalamos 20 paneles hace 2 años y ya recuperamos el 40% de la inversión. Excelente servicio y soporte postventa."</p>
+          <footer>— <cite>Carlos Mendoza, Lima</cite> — Sistema residencial 9 kWp</footer>
+        </blockquote>
+
+        <blockquote class="testimonio">
+          <p>"Nuestra empresa redujo la factura eléctrica en un 75%. EcoSunTech nos asesoró perfectamente desde el inicio."</p>
+          <footer>— <cite>María Torres, Arequipa</cite> — Sistema comercial 50 kWp</footer>
+        </blockquote>
+
+        <blockquote class="testimonio">
+          <p>"El sistema de baterías nos da independencia total. Ya no nos afectan los cortes de luz."</p>
+          <footer>— <cite>Javier Rojas, Cusco</cite> — Sistema off-grid con baterías</footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN 4: ACERCA DE NOSOTROS
+       ═══════════════════════════════════════════════ -->
+  <section id="nosotros" class="seccion seccion-clara">
+    <div class="contenedor">
+
+      <h2 class="seccion-titulo">Acerca de Nosotros</h2>
+      <p class="seccion-subtitulo">Comprometidos con el futuro energético del Perú</p>
+
+      <!-- Misión, Visión y Valores con SVG decorativo -->
+      <div class="nosotros-grid">
+
+        <!-- Texto de la empresa -->
+        <div class="nosotros-texto">
+          <h3>Nuestra Historia</h3>
+          <p>
+            EcoSunTech S.A. nació en 2010 con la misión de democratizar el acceso a la energía solar en el Perú.
+            Comenzamos como un pequeño distribuidor local y hoy somos una empresa mediana con más de 500 instalaciones exitosas
+            en todo el país.
+          </p>
+          <p>
+            Creemos que la transición energética es posible y necesaria. Por eso ofrecemos soluciones accesibles,
+            confiables y respaldadas por garantías reales.
+          </p>
+
+          <!-- Lista de valores -->
+          <ul class="valores-lista">
+            <li>🌿 <strong>Sostenibilidad:</strong> Cada instalación reduce emisiones de CO₂</li>
+            <li>⚡ <strong>Innovación:</strong> Siempre con la tecnología más avanzada</li>
+            <li>🤝 <strong>Confianza:</strong> Transparencia en precios y procesos</li>
+            <li>🏆 <strong>Calidad:</strong> Solo trabajamos con marcas certificadas</li>
+          </ul>
+        </div>
+
+        <!-- SVG ilustrativo: diagrama de sistema solar -->
+        <figure class="nosotros-figura">
+          <!-- SVG complejo: muestra cómo funciona un sistema solar -->
+          <svg viewBox="0 0 400 300" width="100%" class="diagrama-svg" aria-label="Diagrama de sistema solar">
+            <defs>
+              <!-- Gradiente para el cielo -->
+              <linearGradient id="grad-cielo" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   style="stop-color:#87CEEB; stop-opacity:0.3"/>
+                <stop offset="100%" style="stop-color:#1a6b3c; stop-opacity:0.1"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Fondo -->
+            <rect width="400" height="300" fill="url(#grad-cielo)" rx="12"/>
+
+            <!-- Sol -->
+            <circle cx="60" cy="50" r="30" fill="#F5A623" opacity="0.9" class="sol-pulso"/>
+            <!-- Rayos del sol en SVG -->
+            <g stroke="#F5A623" stroke-width="2" opacity="0.7">
+              <line x1="60" y1="12" x2="60" y2="20"/>
+              <line x1="60" y1="80" x2="60" y2="88"/>
+              <line x1="22" y1="50" x2="30" y2="50"/>
+              <line x1="90" y1="50" x2="98" y2="50"/>
+              <line x1="35" y1="25" x2="41" y2="31"/>
+              <line x1="79" y1="69" x2="85" y2="75"/>
+              <line x1="85" y1="25" x2="79" y2="31"/>
+              <line x1="41" y1="69" x2="35" y2="75"/>
+            </g>
+
+            <!-- Casa -->
+            <polygon points="180,170 230,120 280,170" fill="#8B4513"/>
+            <rect x="190" y="170" width="80" height="60" fill="#D2691E"/>
+            <!-- Puerta -->
+            <rect x="220" y="200" width="20" height="30" fill="#5a2d0c"/>
+            <!-- Ventana -->
+            <rect x="200" y="180" width="15" height="15" fill="#87CEEB"/>
+
+            <!-- Paneles solares en el techo (rectángulos azul oscuro) -->
+            <g class="paneles-animados">
+              <rect x="198" y="130" width="25" height="15" rx="1" fill="#1a3d6b" stroke="#4a7fb5" stroke-width="0.5"/>
+              <rect x="225" y="122" width="25" height="15" rx="1" fill="#1a3d6b" stroke="#4a7fb5" stroke-width="0.5" transform="rotate(-30, 237, 130)"/>
+            </g>
+
+            <!-- Flechas de flujo de energía (con animación CSS) -->
+            <!-- Del sol a los paneles -->
+            <path d="M85 60 Q140 80 195 140" stroke="#F5A623" stroke-width="2"
+                  fill="none" stroke-dasharray="6,4" class="flecha-energia"/>
+            <!-- De los paneles al inversor -->
+            <path d="M250 175 L310 175" stroke="#F5A623" stroke-width="2"
+                  fill="none" stroke-dasharray="6,4" class="flecha-energia"/>
+
+            <!-- Inversor -->
+            <rect x="310" y="160" width="50" height="40" rx="5" fill="#0a3d6b"/>
+            <text x="335" y="175" text-anchor="middle" fill="white" font-size="7" font-family="Montserrat">INV</text>
+            <text x="335" y="188" text-anchor="middle" fill="#F5A623" font-size="6">5kW</text>
+
+            <!-- Batería -->
+            <rect x="310" y="220" width="50" height="35" rx="5" fill="#2d1a6b"/>
+            <text x="335" y="238" text-anchor="middle" fill="white" font-size="7" font-family="Montserrat">BAT</text>
+            <text x="335" y="250" text-anchor="middle" fill="#F5A623" font-size="6">10kWh</text>
+
+            <!-- Conexión inversor-batería -->
+            <line x1="335" y1="200" x2="335" y2="220" stroke="#4a7fb5" stroke-width="2" stroke-dasharray="4,3"/>
+
+            <!-- Red eléctrica (torre) -->
+            <line x1="100" y1="270" x2="100" y2="220" stroke="#888" stroke-width="2"/>
+            <line x1="85"  y1="225" x2="115" y2="225" stroke="#888" stroke-width="2"/>
+            <line x1="90"  y1="235" x2="110" y2="235" stroke="#888" stroke-width="2"/>
+            <text x="100" y="285" text-anchor="middle" fill="#666" font-size="8" font-family="Montserrat">Red</text>
+
+            <!-- Etiqueta explicativa -->
+            <text x="200" y="295" text-anchor="middle" fill="#1a6b3c" font-size="9" font-family="Montserrat" font-weight="600">
+              Sistema Solar Residencial Típico
+            </text>
+          </svg>
+          <figcaption>Diagrama ilustrativo de un sistema solar completo</figcaption>
+        </figure>
+
+      </div><!-- fin nosotros-grid -->
+
+      <!-- Equipo -->
+      <h3 class="tabla-titulo" style="margin-top:3rem;">Nuestro Equipo</h3>
+      <div class="equipo-grid">
+        <div class="equipo-card">
+          <img src="https://placehold.co/100x100/1a6b3c/ffffff?text=AM" alt="Ana Martínez, CEO" width="100" height="100" class="equipo-foto">
+          <h4>Ana Martínez</h4>
+          <p>CEO & Fundadora</p>
+          <small>Ing. Electrónica — 15 años en energías renovables</small>
+        </div>
+        <div class="equipo-card">
+          <img src="https://placehold.co/100x100/0a3d6b/ffffff?text=LG" alt="Luis García, CTO" width="100" height="100" class="equipo-foto">
+          <h4>Luis García</h4>
+          <p>Director Técnico</p>
+          <small>Ing. Eléctrico — Especialista en sistemas fotovoltaicos</small>
+        </div>
+        <div class="equipo-card">
+          <img src="https://placehold.co/100x100/3d6b1a/ffffff?text=SR" alt="Sandra Ríos, Ventas" width="100" height="100" class="equipo-foto">
+          <h4>Sandra Ríos</h4>
+          <p>Gerente Comercial</p>
+          <small>MBA — Especialista en proyectos industriales</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECCIÓN 5: CONTACTO
+       ═══════════════════════════════════════════════ -->
+  <section id="contacto" class="seccion seccion-contacto">
+    <div class="contenedor">
+
+      <h2 class="seccion-titulo">Contáctenos</h2>
+      <p class="seccion-subtitulo">Solicite su cotización sin compromiso. Respondemos en menos de 24 horas.</p>
+
+      <div class="contacto-grid">
+
+        <!-- ─── FORMULARIO DE CONTACTO ─── -->
+        <!--
+          action="#"     → Dónde se envía el formulario (aquí mismo, sin procesar)
+          method="post"  → Método HTTP para envío seguro de datos
+          novalidate     → Desactiva validación del navegador (usamos la nuestra en CSS)
+        -->
+        <form class="formulario" action="#" method="post" novalidate>
+
+          <h3>Formulario de Cotización</h3>
+
+          <!-- Campo: Nombre completo -->
+          <!-- <label> vincula el texto con el campo mediante "for" e "id" -->
+          <div class="campo-grupo">
+            <label for="nombre">Nombre Completo *</label>
+            <input type="text"
+                   id="nombre"
+                   name="nombre"
+                   placeholder="Ej: Juan Pérez"
+                   required
+                   minlength="3"
+                   autocomplete="name">
+            <!-- required: campo obligatorio | minlength: mínimo 3 caracteres -->
+          </div>
+
+          <!-- Campo: Correo electrónico -->
+          <div class="campo-grupo">
+            <label for="email">Correo Electrónico *</label>
+            <!-- type="email": validación automática de formato de correo -->
+            <input type="email"
+                   id="email"
+                   name="email"
+                   placeholder="correo@ejemplo.com"
+                   required
+                   autocomplete="email">
+          </div>
+
+          <!-- Campo: Teléfono -->
+          <div class="campo-grupo">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <!-- type="tel": teclado numérico en móviles -->
+            <input type="tel"
+                   id="telefono"
+                   name="telefono"
+                   placeholder="+51 999 000 000"
+                   pattern="[\+0-9\s\-]{7,15}"
+                   autocomplete="tel">
+            <!-- pattern: expresión regular para validar formato de teléfono -->
+          </div>
+
+          <!-- Campo: Tipo de proyecto -->
+          <div class="campo-grupo">
+            <label for="tipo">Tipo de Proyecto *</label>
+            <!-- <select>: lista desplegable de opciones -->
+            <select id="tipo" name="tipo" required>
+              <option value="">-- Seleccione una opción --</option>
+              <option value="residencial">Residencial (casa/departamento)</option>
+              <option value="comercial">Comercial (oficina/tienda)</option>
+              <option value="industrial">Industrial (fábrica/almacén)</option>
+              <option value="agricola">Agrícola (bombeo/riego)</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <!-- Campo: Consumo mensual (número con rango) -->
+          <div class="campo-grupo">
+            <label for="consumo">Consumo Mensual (kWh aprox.)</label>
+            <!-- type="number": solo acepta números, con min y max -->
+            <input type="number"
+                   id="consumo"
+                   name="consumo"
+                   placeholder="Ej: 350"
+                   min="50"
+                   max="50000">
+          </div>
+
+          <!-- Campo: Presupuesto con datalist -->
+          <div class="campo-grupo">
+            <label for="presupuesto">Presupuesto Disponible (USD)</label>
+            <input type="text"
+                   id="presupuesto"
+                   name="presupuesto"
+                   list="presupuestos-opciones"
+                   placeholder="Ej: 3000">
+            <!-- datalist: sugerencias desplegables pero el usuario puede escribir otro valor -->
+            <datalist id="presupuestos-opciones">
+              <option value="1000 - 3000">
+              <option value="3000 - 6000">
+              <option value="6000 - 12000">
+              <option value="12000 - 25000">
+              <option value="Más de 25000">
+            </datalist>
+          </div>
+
+          <!-- Campo: Productos de interés (checkboxes) -->
+          <div class="campo-grupo">
+            <fieldset class="campo-fieldset">
+              <!-- fieldset agrupa campos relacionados; legend es su título -->
+              <legend>Productos de Interés</legend>
+              <label class="check-label">
+                <input type="checkbox" name="interes[]" value="paneles"> Paneles Solares
+              </label>
+              <label class="check-label">
+                <input type="checkbox" name="interes[]" value="inversores"> Inversores
+              </label>
+              <label class="check-label">
+                <input type="checkbox" name="interes[]" value="baterias"> Baterías
+              </label>
+              <label class="check-label">
+                <input type="checkbox" name="interes[]" value="instalacion"> Instalación completa
+              </label>
+            </fieldset>
+          </div>
+
+          <!-- Campo: Cómo nos conoció (radio buttons) -->
+          <div class="campo-grupo">
+            <fieldset class="campo-fieldset">
+              <legend>¿Cómo nos encontró?</legend>
+              <label class="radio-label">
+                <input type="radio" name="fuente" value="google"> Google
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="fuente" value="redes"> Redes Sociales
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="fuente" value="recomendacion"> Recomendación
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="fuente" value="otro"> Otro
+              </label>
+            </fieldset>
+          </div>
+
+          <!-- Campo: Mensaje / Consulta -->
+          <div class="campo-grupo">
+            <label for="mensaje">Mensaje o Consulta *</label>
+            <!-- <textarea>: área de texto multilínea -->
+            <textarea id="mensaje"
+                      name="mensaje"
+                      rows="4"
+                      placeholder="Cuéntenos sobre su proyecto o deje su consulta aquí..."
+                      required
+                      minlength="20"></textarea>
+          </div>
+
+          <!-- Campo: Fecha preferida de contacto -->
+          <div class="campo-grupo">
+            <label for="fecha">Fecha preferida para ser contactado</label>
+            <!-- type="date": selector de fecha nativo del navegador -->
+            <input type="date" id="fecha" name="fecha">
+          </div>
+
+          <!-- Campo: Adjuntar recibo de luz (archivo) -->
+          <div class="campo-grupo">
+            <label for="archivo">Adjuntar recibo de luz (opcional)</label>
+            <!-- type="file": permite subir archivos -->
+            <!-- accept: limita tipos de archivo permitidos -->
+            <input type="file"
+                   id="archivo"
+                   name="archivo"
+                   accept=".pdf,.jpg,.jpeg,.png">
+            <small>Formatos: PDF, JPG, PNG. Nos ayuda a estimar mejor su sistema.</small>
+          </div>
+
+          <!-- Aceptación de términos -->
+          <div class="campo-grupo">
+            <label class="check-label terminos">
+              <input type="checkbox" name="terminos" required>
+              Acepto la <a href="#">política de privacidad</a> y el tratamiento de mis datos personales. *
+            </label>
+          </div>
+
+          <!-- Botón de envío -->
+          <!-- type="submit": envía el formulario al action definido -->
+          <button type="submit" class="btn btn-formulario">
+            Enviar Solicitud de Cotización ➜
+          </button>
+
+          <!-- Nota de campos obligatorios -->
+          <p class="nota-campos"><small>* Campos obligatorios</small></p>
+
+        </form>
+
+        <!-- Información de contacto directo -->
+        <aside class="contacto-info">
+          <h3>Contáctenos Directamente</h3>
+
+          <div class="info-item">
+            <!-- SVG ícono de ubicación -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+            </svg>
+            <div>
+              <strong>Dirección</strong>
+              <p>Av. Solar 1234, Lima 15001, Perú</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <div>
+              <strong>Teléfono</strong>
+              <p>+51 (01) 234-5678</p>
+              <p>+51 999 123 456 (WhatsApp)</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <div>
+              <strong>Email</strong>
+              <p>info@ecosuntech.pe</p>
+              <p>ventas@ecosuntech.pe</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+            </svg>
+            <div>
+              <strong>Horario de Atención</strong>
+              <p>Lun – Vie: 8:00 – 18:00</p>
+              <p>Sábado: 9:00 – 13:00</p>
+            </div>
+          </div>
+
+          <!-- SVG decorativo: panel solar esquemático -->
+          <svg viewBox="0 0 200 120" width="100%" class="deco-svg" aria-hidden="true">
+            <rect width="200" height="120" rx="10" fill="#0a2e1a"/>
+            <!-- Cuadrícula de paneles solares -->
+            <g fill="#1a3d6b" stroke="#4a7fb5" stroke-width="0.5">
+              <rect x="10"  y="10"  width="40" height="25" rx="2"/>
+              <rect x="55"  y="10"  width="40" height="25" rx="2"/>
+              <rect x="100" y="10"  width="40" height="25" rx="2"/>
+              <rect x="145" y="10"  width="45" height="25" rx="2"/>
+              <rect x="10"  y="40"  width="40" height="25" rx="2"/>
+              <rect x="55"  y="40"  width="40" height="25" rx="2"/>
+              <rect x="100" y="40"  width="40" height="25" rx="2"/>
+              <rect x="145" y="40"  width="45" height="25" rx="2"/>
+            </g>
+            <!-- Sol brillando sobre los paneles -->
+            <circle cx="170" cy="90" r="20" fill="#F5A623" opacity="0.8" class="sol-pulso"/>
+            <text x="100" y="105" text-anchor="middle" fill="#F5A623"
+                  font-family="Montserrat" font-size="9" font-weight="600">
+              Ahorra hasta 80% en tu factura eléctrica
+            </text>
+          </svg>
+        </aside>
+
+      </div><!-- fin contacto-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PIE DE PÁGINA (FOOTER)
+       ═══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="contenedor footer-grid">
+
+      <!-- Columna 1: Marca -->
+      <div class="footer-marca">
+        <span class="logo-texto footer-logo"><span class="logo-eco">Eco</span>SunTech</span>
+        <p>Energía solar accesible, confiable y sostenible para todos los peruanos.</p>
+      </div>
+
+      <!-- Columna 2: Links rápidos -->
+      <nav aria-label="Navegación del pie de página">
+        <h4>Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Columna 3: Productos -->
+      <div>
+        <h4>Productos</h4>
+        <ul class="footer-links">
+          <li><a href="#productos">Paneles Solares</a></li>
+          <li><a href="#productos">Inversores</a></li>
+          <li><a href="#productos">Baterías</a></li>
+          <li><a href="#productos">Accesorios</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Legal -->
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Términos de Servicio</a></li>
+          <li><a href="#">Garantías</a></li>
+        </ul>
+      </div>
+
+    </div><!-- fin footer-grid -->
+
+    <!-- Barra inferior del footer -->
+    <div class="footer-barra">
+      <p>© 2025 EcoSunTech S.A. — Todos los derechos reservados</p>
+      <p>RUC: 20123456789 | Lima, Perú</p>
+    </div>
+  </footer>
+
+</body>
+</html>
