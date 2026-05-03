@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!-- Esto le dice al navegador que es un documento HTML5 -->
+
+<html lang="es">
+<!-- lang="es" indica que el idioma de la página es español -->
+
+<head>
+  <!-- El head contiene información que el navegador usa pero el usuario no ve -->
+
+  <meta charset="UTF-8">
+  <!-- Esto permite usar tildes y caracteres especiales del español -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Esto hace que la página se adapte al tamaño de celulares y tablets -->
+
+  <meta name="description" content="EcoTravel - Paquetes turísticos ecológicos para amantes de la naturaleza">
+  <!-- Esto es lo que aparece en Google cuando buscan la página -->
+
+  <meta name="keywords" content="turismo ecológico, viajes, naturaleza, ecotravel, paquetes turísticos">
+  <!-- Palabras clave que ayudan a que Google encuentre la página -->
+
+  <meta name="author" content="EcoTravel">
+  <!-- El autor de la página web -->
+
+  <title>EcoTravel - Turismo Ecológico</title>
+  <!-- El título que aparece en la pestaña del navegador -->
+
+  <link rel="stylesheet" href="styles03.css">
+  <!-- Aquí conectamos el archivo CSS que tiene todos los estilos -->
+
+</head>
+
+<body>
+  <!-- Aquí empieza todo lo que el usuario puede ver -->
+
+  <!-- ========== ENCABEZADO ========== -->
+  <header class="encabezado">
+    <!-- El header es la parte de arriba de la página -->
+
+    <div class="logo-area">
+      <!-- Un div es una caja, aquí ponemos el logo y el nombre juntos -->
+
+      <span class="logo-icono">🌿</span>
+      <!-- El emoji hace de logo, más fácil que usar una imagen -->
+
+      <h1 class="nombre-empresa">EcoTravel</h1>
+      <!-- El h1 es el título más importante de la página -->
+
+    </div>
+
+    <nav class="navegacion">
+      <!-- La etiqueta nav es para los enlaces de navegación -->
+
+      <a href="#inicio">Inicio</a>
+      <!-- href="#inicio" lleva a la sección con id="inicio" en la misma página -->
+
+      <a href="#destinos">Destinos</a>
+      <!-- Enlace a la sección de destinos -->
+
+      <a href="#servicios">Servicios</a>
+      <!-- Enlace a la tabla de servicios -->
+
+      <a href="#contacto">Contacto</a>
+      <!-- Enlace al formulario de contacto -->
+
+    </nav>
+  </header>
+  <!-- Fin del encabezado -->
+
+
+  <!-- ========== PORTADA / HERO ========== -->
+  <section id="inicio" class="portada">
+    <!-- section es una sección temática, id="inicio" para que el enlace del nav funcione -->
+
+    <div class="portada-contenido">
+      <!-- Caja que centra el texto de la portada -->
+
+      <h2 class="portada-titulo">Descubre la Naturaleza</h2>
+      <!-- Título grande de bienvenida -->
+
+      <p class="portada-texto">Viajes ecológicos que cuidan el planeta y transforman tu vida</p>
+      <!-- Descripción corta debajo del título -->
+
+      <a href="#destinos" class="boton-principal">Ver Destinos</a>
+      <!-- Botón que lleva a la sección de destinos, le damos clase para estilizarlo -->
+
+    </div>
+  </section>
+  <!-- Fin de la portada -->
+
+
+  <!-- ========== SECCIÓN DE DESTINOS ========== -->
+  <section id="destinos" class="seccion-destinos">
+    <!-- Sección de destinos turísticos -->
+
+    <h2 class="titulo-seccion">Nuestros Destinos</h2>
+    <!-- Título de la sección -->
+
+    <p class="subtitulo-seccion">Lugares únicos que te conectan con la naturaleza</p>
+    <!-- Pequeña descripción debajo del título -->
+
+    <div class="grid-destinos">
+      <!-- Este div usará CSS Grid para poner las tarjetas en columnas -->
+
+
+      <!-- TARJETA 1 -->
+      <article class="tarjeta-destino">
+        <!-- article es para contenido independiente, aquí cada destino -->
+
+        <div class="imagen-contenedor">
+          <!-- Caja que contiene la imagen para controlar su tamaño -->
+
+          <img 
+            src="https://picsum.photos/seed/amazon/400/250" 
+            alt="Selva Amazónica"
+            class="imagen-destino"
+          >
+          <!-- img muestra una imagen, alt describe la imagen para accesibilidad -->
+
+        </div>
+
+        <div class="tarjeta-info">
+          <!-- Caja con el texto de la tarjeta -->
+
+          <h3 class="destino-titulo">🌳 Selva Amazónica</h3>
+          <!-- h3 es un subtítulo dentro de la tarjeta -->
+
+          <p class="destino-descripcion">
+            Explora la biodiversidad más rica del planeta. Camina entre árboles milenarios 
+            y descubre especies únicas en su hábitat natural.
+          </p>
+          <!-- Descripción del destino -->
+
+          <span class="precio">Desde $450</span>
+          <!-- Precio del paquete -->
+
+          <a href="#contacto" class="boton-tarjeta">Reservar</a>
+          <!-- Botón que lleva al formulario -->
+
+        </div>
+      </article>
+      <!-- Fin tarjeta 1 -->
+
+
+      <!-- TARJETA 2 -->
+      <article class="tarjeta-destino">
+
+        <div class="imagen-contenedor">
+          <img 
+            src="https://picsum.photos/seed/patagonia/400/250" 
+            alt="Patagonia"
+            class="imagen-destino"
+          >
+        </div>
+
+        <div class="tarjeta-info">
+          <h3 class="destino-titulo">🏔️ Patagonia</h3>
+
+          <p class="destino-descripcion">
+            Montañas imponentes, glaciares eternos y vientos salvajes. 
+            La Patagonia te ofrece paisajes que parecen de otro mundo.
+          </p>
+
+          <span class="precio">Desde $680</span>
+
+          <a href="#contacto" class="boton-tarjeta">Reservar</a>
+        </div>
+      </article>
+      <!-- Fin tarjeta 2 -->
+
+
+      <!-- TARJETA 3 -->
+      <article class="tarjeta-destino">
+
+        <div class="imagen-contenedor">
+          <img 
+            src="https://picsum.photos/seed/galapagos/400/250" 
+            alt="Islas Galápagos"
+            class="imagen-destino"
+          >
+        </div>
+
+        <div class="tarjeta-info">
+          <h3 class="destino-titulo">🐢 Islas Galápagos</h3>
+
+          <p class="destino-descripcion">
+            Un laboratorio natural viviente. Nada junto a tortugas gigantes, 
+            iguanas marinas y lobos de mar en un ecosistema único.
+          </p>
+
+          <span class="precio">Desde $820</span>
+
+          <a href="#contacto" class="boton-tarjeta">Reservar</a>
+        </div>
+      </article>
+      <!-- Fin tarjeta 3 -->
+
+    </div>
+    <!-- Fin del grid de destinos -->
+
+  </section>
+  <!-- Fin de la sección de destinos -->
+
+
+  <!-- ========== TABLA DE SERVICIOS ========== -->
+  <section id="servicios" class="seccion-servicios">
+    <!-- Sección con tabla de los paquetes disponibles -->
+
+    <h2 class="titulo-seccion">Nuestros Paquetes</h2>
+    <!-- Título de la sección -->
+
+    <p class="subtitulo-seccion">Elige el paquete que mejor se adapta a ti</p>
+
+    <div class="tabla-contenedor">
+      <!-- Div que envuelve la tabla para poder hacer scroll horizontal en móvil -->
+
+      <table class="tabla-servicios">
+        <!-- La etiqueta table crea una tabla -->
+
+        <thead>
+          <!-- thead es la fila de encabezados de la tabla -->
+          <tr>
+            <!-- tr es una fila (table row) -->
+            <th>Destino</th>
+            <!-- th es un encabezado de columna (table header) -->
+            <th>Duración</th>
+            <th>Incluye</th>
+            <th>Precio</th>
+            <th>Dificultad</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- tbody es donde van los datos de la tabla -->
+
+          <tr>
+            <!-- Primera fila de datos -->
+            <td>🌳 Selva Amazónica</td>
+            <!-- td es una celda normal (table data) -->
+            <td>7 días</td>
+            <td>Vuelo, hospedaje, guía</td>
+            <td>$450</td>
+            <td class="dificultad facil">Fácil</td>
+            <!-- Le damos clases para colorear según la dificultad -->
+          </tr>
+
+          <tr>
+            <td>🏔️ Patagonia</td>
+            <td>10 días</td>
+            <td>Vuelo, camping, guía, equipo</td>
+            <td>$680</td>
+            <td class="dificultad media">Media</td>
+          </tr>
+
+          <tr>
+            <td>🐢 Islas Galápagos</td>
+            <td>8 días</td>
+            <td>Vuelo, crucero, snorkel, guía</td>
+            <td>$820</td>
+            <td class="dificultad media">Media</td>
+          </tr>
+
+          <tr>
+            <td>🌊 Costa Rica</td>
+            <td>5 días</td>
+            <td>Vuelo, hotel, tours</td>
+            <td>$390</td>
+            <td class="dificultad facil">Fácil</td>
+          </tr>
+
+          <tr>
+            <td>🦁 Safari Africano</td>
+            <td>14 días</td>
+            <td>Vuelo, lodge, safari, guía</td>
+            <td>$1,200</td>
+            <td class="dificultad dificil">Difícil</td>
+          </tr>
+
+        </tbody>
+      </table>
+      <!-- Fin de la tabla -->
+
+    </div>
+  </section>
+  <!-- Fin de sección de servicios -->
+
+
+  <!-- ========== FORMULARIO DE CONTACTO ========== -->
+  <section id="contacto" class="seccion-contacto">
+    <!-- Sección del formulario -->
+
+    <h2 class="titulo-seccion claro">¿Listo para tu Aventura?</h2>
+    <!-- Clase "claro" porque el fondo es oscuro, el texto debe ser blanco -->
+
+    <p class="subtitulo-seccion claro">Contáctanos y te armamos el viaje perfecto</p>
+
+    <form class="formulario" action="#" method="post">
+      <!-- form es el formulario, action dice a dónde se envía, method es el método -->
+
+      <div class="form-grupo">
+        <!-- Agrupamos cada campo con su etiqueta en un div -->
+
+        <label for="nombre">Nombre completo</label>
+        <!-- label es la etiqueta del campo, for debe coincidir con el id del input -->
+
+        <input 
+          type="text" 
+          id="nombre" 
+          name="nombre" 
+          placeholder="Ej: Juan García"
+          required
+        >
+        <!-- input type="text" es un campo de texto, required lo hace obligatorio -->
+
+      </div>
+
+      <div class="form-grupo">
+        <label for="correo">Correo electrónico</label>
+
+        <input 
+          type="email" 
+          id="correo" 
+          name="correo" 
+          placeholder="Ej: juan@email.com"
+          required
+        >
+        <!-- type="email" valida automáticamente que sea un correo válido -->
+
+      </div>
+
+      <div class="form-grupo">
+        <label for="telefono">Teléfono</label>
+
+        <input 
+          type="tel" 
+          id="telefono" 
+          name="telefono" 
+          placeholder="Ej: +51 999 888 777"
+        >
+        <!-- type="tel" es para números de teléfono, no es obligatorio -->
+
+      </div>
+
+      <div class="form-grupo">
+        <label for="destino">Destino de interés</label>
+
+        <select id="destino" name="destino">
+          <!-- select crea una lista desplegable para elegir opciones -->
+
+          <option value="">-- Selecciona un destino --</option>
+          <!-- La primera opción vacía sirve de indicación -->
+
+          <option value="amazon">🌳 Selva Amazónica</option>
+          <option value="patagonia">🏔️ Patagonia</option>
+          <option value="galapagos">🐢 Islas Galápagos</option>
+          <option value="costarica">🌊 Costa Rica</option>
+          <option value="safari">🦁 Safari Africano</option>
+
+        </select>
+      </div>
+
+      <div class="form-grupo">
+        <label for="mensaje">Mensaje</label>
+
+        <textarea 
+          id="mensaje" 
+          name="mensaje" 
+          rows="5" 
+          placeholder="Cuéntanos qué tipo de viaje buscas..."
+          required
+        ></textarea>
+        <!-- textarea es un campo de texto de varias líneas, rows define su altura -->
+
+      </div>
+
+      <button type="submit" class="boton-enviar">
+        <!-- button type="submit" envía el formulario al hacer clic -->
+        🌿 Enviar Consulta
+      </button>
+
+    </form>
+    <!-- Fin del formulario -->
+
+  </section>
+  <!-- Fin de la sección de contacto -->
+
+
+  <!-- ========== PIE DE PÁGINA ========== -->
+  <footer class="pie-pagina">
+    <!-- footer es la parte de abajo de la página -->
+
+    <div class="footer-grid">
+      <!-- Usaremos grid para organizar el contenido del footer en columnas -->
+
+
+      <div class="footer-columna">
+        <!-- Primera columna: información de la empresa -->
+
+        <h3>🌿 EcoTravel</h3>
+        <!-- Nombre con logo emoji -->
+
+        <p>Viajes que cuidan el planeta. Turismo responsable desde 2020.</p>
+        <!-- Descripción corta -->
+
+      </div>
+
+      <div class="footer-columna">
+        <!-- Segunda columna: enlaces rápidos -->
+
+        <h3>Enlaces</h3>
+
+        <ul class="footer-lista">
+          <!-- ul es una lista sin orden (puntos) -->
+
+          <li><a href="#inicio">Inicio</a></li>
+          <!-- li es cada elemento de la lista -->
+
+          <li><a href="#destinos">Destinos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+      </div>
+
+      <div class="footer-columna">
+        <!-- Tercera columna: redes sociales -->
+
+        <h3>Síguenos</h3>
+
+        <div class="redes-sociales">
+          <!-- Div con los íconos de redes sociales -->
+
+          <a href="#" class="red-social" title="Facebook">📘 Facebook</a>
+          <!-- title muestra un tooltip al pasar el mouse -->
+
+          <a href="#" class="red-social" title="Instagram">📷 Instagram</a>
+          <a href="#" class="red-social" title="Twitter">🐦 Twitter</a>
+          <a href="#" class="red-social" title="YouTube">▶️ YouTube</a>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- Fin del grid del footer -->
+
+    <div class="footer-copy">
+      <!-- Línea de derechos de autor al fondo -->
+
+      <p>&copy; 2025 EcoTravel. Todos los derechos reservados.</p>
+      <!-- &copy; es el símbolo de copyright © -->
+
+    </div>
+
+  </footer>
+  <!-- Fin del pie de página -->
+
+</body>
+<!-- Fin del cuerpo de la página -->
+
+</html>
+<!-- Fin del documento HTML -->

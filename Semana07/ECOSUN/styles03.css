@@ -1,0 +1,605 @@
+/* ================================================
+   ARCHIVO DE ESTILOS - EcoTravel
+   Aquí controlamos cómo se ve cada cosa del HTML
+   ================================================ */
+
+
+/* === VARIABLES CSS === */
+/* Las variables guardan valores que usaremos muchas veces */
+/* Así si cambiamos el color verde, cambia en toda la página */
+:root {
+  --verde-oscuro: #2d6a4f;    /* Verde principal para encabezados */
+  --verde-medio: #40916c;     /* Verde para botones y detalles */
+  --verde-claro: #74c69d;     /* Verde suave para fondos y hovers */
+  --verde-palido: #d8f3dc;    /* Verde muy suave para fondos claros */
+  --marron: #774936;          /* Marrón para detalles de tierra */
+  --azul: #023e8a;            /* Azul para acentos */
+  --azul-claro: #90e0ef;      /* Azul claro para hovers */
+  --blanco: #ffffff;          /* Blanco para textos en fondo oscuro */
+  --gris-texto: #333333;      /* Gris oscuro para el texto normal */
+  --gris-claro: #f4f4f4;      /* Gris muy claro para fondos de secciones */
+}
+
+
+/* === RESET Y BASE === */
+/* El reset quita los estilos que el navegador pone por defecto */
+* {
+  margin: 0;           /* Quita el margen exterior de todos los elementos */
+  padding: 0;          /* Quita el relleno interior de todos los elementos */
+  box-sizing: border-box; /* El tamaño incluye el borde y el padding */
+}
+
+body {
+  font-family: 'Georgia', serif; /* Tipo de letra de todo el sitio */
+  color: var(--gris-texto);      /* Color del texto usando la variable */
+  background-color: var(--blanco); /* Fondo blanco de la página */
+  line-height: 1.6;              /* Espacio entre líneas del texto */
+}
+
+/* Estilo base para todos los enlaces de la página */
+a {
+  text-decoration: none;       /* Quita el subrayado de los enlaces */
+  color: inherit;              /* Hereda el color del elemento padre */
+}
+
+/* Estilo base para las imágenes */
+img {
+  max-width: 100%;  /* La imagen nunca supera el ancho de su contenedor */
+  display: block;   /* Las imágenes se comportan como bloques */
+}
+
+
+/* ===================================
+   ENCABEZADO / HEADER
+   =================================== */
+.encabezado {
+  background-color: var(--verde-oscuro); /* Fondo verde oscuro */
+  padding: 15px 40px;                    /* Espacio interior: arriba/abajo y lados */
+  display: flex;                         /* Activamos Flexbox para organizar hijos */
+  justify-content: space-between;        /* Logo a la izquierda, nav a la derecha */
+  align-items: center;                   /* Centrar verticalmente los elementos */
+  position: sticky;                      /* El encabezado se queda fijo al bajar */
+  top: 0;                                /* Se pega a la parte de arriba */
+  z-index: 100;                          /* Va encima de otros elementos */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra debajo del encabezado */
+}
+
+/* Área del logo: contiene el emoji y el nombre juntos */
+.logo-area {
+  display: flex;          /* Flexbox para poner ícono y texto en fila */
+  align-items: center;    /* Alinear verticalmente al centro */
+  gap: 10px;              /* Espacio entre el ícono y el texto */
+}
+
+/* El emoji del logo */
+.logo-icono {
+  font-size: 2rem;  /* Tamaño grande para el emoji */
+}
+
+/* El nombre de la empresa */
+.nombre-empresa {
+  color: var(--blanco);       /* Texto blanco sobre fondo verde */
+  font-size: 1.8rem;          /* Tamaño del título */
+  letter-spacing: 2px;        /* Espacio entre letras para que se vea elegante */
+}
+
+/* La barra de navegación */
+.navegacion {
+  display: flex;    /* Ponemos los enlaces en fila con Flexbox */
+  gap: 25px;        /* Espacio entre cada enlace */
+}
+
+/* Cada enlace del menú */
+.navegacion a {
+  color: var(--verde-palido);  /* Color verde pálido para los links */
+  font-size: 0.95rem;          /* Tamaño de fuente un poco pequeño */
+  font-weight: bold;           /* Texto en negrita */
+  padding: 5px 10px;           /* Relleno para que sea más fácil de clicar */
+  border-radius: 5px;          /* Bordes redondeados */
+  transition: all 0.3s ease;   /* Animación suave al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse sobre los enlaces del menú */
+.navegacion a:hover {
+  background-color: var(--verde-medio); /* Fondo verde al pasar el mouse */
+  color: var(--blanco);                 /* Texto blanco */
+}
+
+
+/* ===================================
+   PORTADA / HERO
+   =================================== */
+.portada {
+  /* Imagen de fondo con degradado encima para oscurecer */
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  /* Capa oscura */
+    url('https://picsum.photos/seed/forest/1200/600') center/cover no-repeat; /* Imagen */
+  
+  height: 85vh;            /* Alto: 85% del alto de la pantalla */
+  display: flex;           /* Flexbox para centrar el contenido */
+  align-items: center;     /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  text-align: center;      /* Texto centrado */
+}
+
+/* Caja con el texto de la portada */
+.portada-contenido {
+  color: var(--blanco);     /* Todo el texto en blanco */
+  max-width: 700px;         /* Ancho máximo del contenido */
+  padding: 20px;            /* Relleno interior */
+  animation: aparece 1.2s ease; /* Animación de aparición al cargar */
+}
+
+/* El título grande de la portada */
+.portada-titulo {
+  font-size: 3.5rem;       /* Tamaño muy grande */
+  margin-bottom: 15px;     /* Espacio debajo del título */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Sombra en el texto */
+}
+
+/* El texto descriptivo de la portada */
+.portada-texto {
+  font-size: 1.2rem;      /* Tamaño mediano */
+  margin-bottom: 30px;    /* Espacio debajo antes del botón */
+  opacity: 0.9;           /* Un poco transparente */
+}
+
+/* El botón principal de la portada */
+.boton-principal {
+  background-color: var(--verde-medio); /* Fondo verde */
+  color: var(--blanco);                 /* Texto blanco */
+  padding: 14px 35px;                   /* Relleno generoso */
+  border-radius: 30px;                  /* Bordes muy redondeados (forma píldora) */
+  font-size: 1.1rem;                    /* Tamaño de letra */
+  font-weight: bold;                    /* Texto en negrita */
+  transition: all 0.3s ease;            /* Transición suave */
+  display: inline-block;                /* Para que el padding funcione bien */
+}
+
+/* Efecto del botón principal al pasar el mouse */
+.boton-principal:hover {
+  background-color: var(--verde-oscuro); /* Se pone más oscuro */
+  transform: translateY(-3px);           /* Sube un poco (efecto flotante) */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* Sombra que aparece */
+}
+
+
+/* ===================================
+   TÍTULOS DE SECCIONES (reutilizable)
+   =================================== */
+/* Este estilo lo comparten los títulos de todas las secciones */
+.titulo-seccion {
+  text-align: center;           /* Centrado */
+  font-size: 2rem;              /* Tamaño grande */
+  color: var(--verde-oscuro);   /* Color verde */
+  margin-bottom: 10px;          /* Espacio debajo */
+}
+
+/* El subtítulo debajo del título principal de cada sección */
+.subtitulo-seccion {
+  text-align: center;   /* Centrado */
+  color: #666666;       /* Color gris */
+  margin-bottom: 40px;  /* Espacio debajo antes del contenido */
+  font-size: 1.05rem;   /* Tamaño normal */
+}
+
+/* Clase para cuando el texto va sobre fondo oscuro */
+.claro {
+  color: var(--blanco) !important; /* Fuerza el color blanco */
+}
+
+
+/* ===================================
+   SECCIÓN DE DESTINOS
+   =================================== */
+.seccion-destinos {
+  padding: 70px 40px;          /* Espacio interior arriba/abajo y lados */
+  background-color: var(--gris-claro); /* Fondo gris muy claro */
+}
+
+/* El contenedor de las tarjetas usando CSS GRID */
+.grid-destinos {
+  display: grid;                           /* Activamos CSS Grid */
+  grid-template-columns: repeat(3, 1fr);   /* 3 columnas de igual tamaño */
+  gap: 30px;                               /* Espacio entre las tarjetas */
+  max-width: 1100px;                       /* Ancho máximo del grid */
+  margin: 0 auto;                          /* Centrar el grid en la página */
+}
+
+/* Cada tarjeta de destino */
+.tarjeta-destino {
+  background-color: var(--blanco);  /* Fondo blanco de la tarjeta */
+  border-radius: 12px;              /* Bordes redondeados */
+  overflow: hidden;                 /* Oculta lo que se salga (la imagen) */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto de la tarjeta al pasar el mouse */
+.tarjeta-destino:hover {
+  transform: translateY(-8px);            /* Sube 8px la tarjeta */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2); /* Sombra más grande */
+}
+
+/* El contenedor de la imagen para controlar su tamaño */
+.imagen-contenedor {
+  width: 100%;   /* Ancho completo del contenedor */
+  height: 200px; /* Altura fija para todas las imágenes */
+  overflow: hidden; /* Oculta lo que sobresalga */
+}
+
+/* La imagen dentro del contenedor */
+.imagen-destino {
+  width: 100%;         /* Ancho completo */
+  height: 100%;        /* Alto completo del contenedor */
+  object-fit: cover;   /* La imagen llena el espacio sin deformarse */
+  transition: transform 0.5s ease, filter 0.5s ease; /* Transición suave */
+}
+
+/* Efecto de la imagen al pasar el mouse sobre la tarjeta */
+.tarjeta-destino:hover .imagen-destino {
+  transform: scale(1.08);          /* Agranda un poco la imagen */
+  filter: brightness(1.1) saturate(1.2); /* Más brillo y saturación */
+}
+
+/* El área de texto de la tarjeta */
+.tarjeta-info {
+  padding: 20px;  /* Relleno interior del texto */
+  display: flex;  /* Flexbox para organizar el contenido interno */
+  flex-direction: column; /* Los elementos van en columna */
+  gap: 10px;      /* Espacio entre cada elemento */
+}
+
+/* El título del destino dentro de la tarjeta */
+.destino-titulo {
+  font-size: 1.2rem;           /* Tamaño del subtítulo */
+  color: var(--verde-oscuro);  /* Color verde */
+}
+
+/* La descripción del destino */
+.destino-descripcion {
+  color: #555555;     /* Color gris medio */
+  font-size: 0.9rem;  /* Tamaño pequeño */
+  flex-grow: 1;       /* Ocupa el espacio sobrante (empuja el precio abajo) */
+}
+
+/* El precio del paquete */
+.precio {
+  font-size: 1.1rem;         /* Tamaño medio */
+  font-weight: bold;         /* Negrita */
+  color: var(--marron);      /* Color marrón */
+}
+
+/* Botón de reservar en la tarjeta */
+.boton-tarjeta {
+  background-color: var(--verde-medio);  /* Fondo verde */
+  color: var(--blanco);                  /* Texto blanco */
+  padding: 10px;                         /* Relleno interior */
+  border-radius: 8px;                    /* Bordes redondeados */
+  text-align: center;                    /* Texto centrado */
+  font-weight: bold;                     /* Negrita */
+  transition: background-color 0.3s ease; /* Transición del color */
+}
+
+/* Efecto del botón de tarjeta al pasar el mouse */
+.boton-tarjeta:hover {
+  background-color: var(--verde-oscuro); /* Se oscurece */
+}
+
+
+/* ===================================
+   SECCIÓN DE SERVICIOS (TABLA)
+   =================================== */
+.seccion-servicios {
+  padding: 70px 40px;             /* Espacio interior */
+  background-color: var(--blanco); /* Fondo blanco */
+}
+
+/* Contenedor de la tabla para scroll horizontal en móvil */
+.tabla-contenedor {
+  max-width: 1000px;  /* Ancho máximo */
+  margin: 0 auto;     /* Centrado */
+  overflow-x: auto;   /* Scroll horizontal si la tabla no cabe */
+}
+
+/* La tabla completa */
+.tabla-servicios {
+  width: 100%;           /* Ocupa todo el ancho disponible */
+  border-collapse: collapse; /* Une los bordes de las celdas */
+  font-size: 0.95rem;    /* Tamaño de letra */
+}
+
+/* Los encabezados de la tabla */
+.tabla-servicios th {
+  background-color: var(--verde-oscuro); /* Fondo verde oscuro */
+  color: var(--blanco);                  /* Texto blanco */
+  padding: 14px 18px;                    /* Relleno de las celdas */
+  text-align: left;                      /* Texto alineado a la izquierda */
+}
+
+/* Las celdas de datos */
+.tabla-servicios td {
+  padding: 12px 18px;               /* Relleno de las celdas */
+  border-bottom: 1px solid #e0e0e0; /* Línea divisoria entre filas */
+}
+
+/* Color alterno en filas para facilitar la lectura */
+.tabla-servicios tbody tr:nth-child(even) {
+  background-color: var(--verde-palido); /* Fila par con fondo verde pálido */
+}
+
+/* Efecto al pasar el mouse sobre una fila */
+.tabla-servicios tbody tr:hover {
+  background-color: var(--azul-claro); /* Fondo azul claro */
+  transition: background-color 0.2s ease; /* Transición suave */
+}
+
+/* Estilos para las etiquetas de dificultad */
+.dificultad {
+  padding: 4px 12px;    /* Pequeño relleno */
+  border-radius: 20px;  /* Forma de píldora */
+  font-weight: bold;    /* Negrita */
+  font-size: 0.85rem;   /* Texto pequeño */
+  text-align: center;   /* Texto centrado */
+}
+
+/* Dificultad fácil: verde */
+.facil {
+  background-color: #95d5b2; /* Verde claro */
+  color: var(--verde-oscuro); /* Texto verde oscuro */
+}
+
+/* Dificultad media: naranja */
+.media {
+  background-color: #ffc971; /* Naranja suave */
+  color: #7a4900;             /* Marrón para contraste */
+}
+
+/* Dificultad difícil: rojo */
+.dificil {
+  background-color: #f4a261; /* Naranja-rojo */
+  color: #6d1a1a;             /* Rojo oscuro */
+}
+
+
+/* ===================================
+   SECCIÓN DE CONTACTO
+   =================================== */
+.seccion-contacto {
+  padding: 70px 40px;              /* Espacio interior */
+  background-color: var(--verde-oscuro); /* Fondo verde oscuro */
+}
+
+/* El formulario de contacto */
+.formulario {
+  max-width: 600px;   /* Ancho máximo del formulario */
+  margin: 0 auto;     /* Centrado en la página */
+  display: flex;      /* Flexbox para organizar los campos */
+  flex-direction: column; /* Los campos van en columna */
+  gap: 20px;          /* Espacio entre cada campo */
+}
+
+/* Cada grupo de label + input */
+.form-grupo {
+  display: flex;          /* Flexbox para poner label y campo en columna */
+  flex-direction: column; /* El label arriba, el campo abajo */
+  gap: 6px;               /* Pequeño espacio entre el label y el campo */
+}
+
+/* Las etiquetas de cada campo */
+.form-grupo label {
+  color: var(--verde-palido); /* Texto verde pálido (fondo es oscuro) */
+  font-weight: bold;           /* Negrita */
+  font-size: 0.95rem;          /* Tamaño normal */
+}
+
+/* Los campos de texto (input y textarea) */
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+  padding: 12px 16px;              /* Relleno interior del campo */
+  border: 2px solid var(--verde-claro); /* Borde verde claro */
+  border-radius: 8px;              /* Bordes redondeados */
+  font-size: 1rem;                 /* Tamaño de la letra */
+  font-family: inherit;            /* Hereda la fuente del body */
+  background-color: rgba(255,255,255,0.1); /* Fondo semitransparente */
+  color: var(--blanco);            /* Texto blanco */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición */
+  outline: none;                   /* Quitamos el contorno azul por defecto */
+}
+
+/* Efecto cuando el usuario hace clic en un campo */
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+  border-color: var(--azul-claro);              /* El borde se vuelve azul */
+  box-shadow: 0 0 0 3px rgba(144,224,239,0.3);  /* Resplandor exterior */
+}
+
+/* El área de texto del mensaje */
+.form-grupo textarea {
+  resize: vertical;  /* El usuario puede solo cambiar la altura, no el ancho */
+}
+
+/* El botón de enviar el formulario */
+.boton-enviar {
+  background-color: var(--verde-claro); /* Fondo verde claro */
+  color: var(--verde-oscuro);            /* Texto verde oscuro */
+  padding: 15px;                         /* Relleno generoso */
+  border: none;                          /* Sin borde */
+  border-radius: 8px;                    /* Bordes redondeados */
+  font-size: 1.1rem;                     /* Tamaño de letra */
+  font-weight: bold;                     /* Negrita */
+  cursor: pointer;                       /* El cursor se convierte en mano */
+  transition: all 0.3s ease;            /* Transición suave */
+}
+
+/* Efecto del botón enviar al pasar el mouse */
+.boton-enviar:hover {
+  background-color: var(--blanco);       /* Fondo blanco */
+  transform: translateY(-2px);           /* Sube ligeramente */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* Sombra */
+}
+
+
+/* ===================================
+   PIE DE PÁGINA / FOOTER
+   =================================== */
+.pie-pagina {
+  background-color: #1a1a1a;  /* Fondo casi negro */
+  color: #cccccc;             /* Texto gris claro */
+  padding: 50px 40px 20px;    /* Relleno: más arriba, menos abajo */
+}
+
+/* Grid del footer: 3 columnas */
+.footer-grid {
+  display: grid;                          /* Activamos CSS Grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 40px;                             /* Espacio entre columnas */
+  max-width: 1000px;                     /* Ancho máximo */
+  margin: 0 auto 40px;                   /* Centrado y espacio abajo */
+}
+
+/* Cada columna del footer */
+.footer-columna h3 {
+  color: var(--verde-claro);  /* Títulos en verde claro */
+  font-size: 1.1rem;           /* Tamaño del título */
+  margin-bottom: 15px;         /* Espacio debajo del título */
+}
+
+.footer-columna p {
+  font-size: 0.9rem;    /* Texto pequeño */
+  line-height: 1.7;     /* Espacio entre líneas */
+}
+
+/* La lista de enlaces del footer */
+.footer-lista {
+  list-style: none;     /* Quitamos los puntos de la lista */
+  display: flex;        /* Flexbox para los elementos */
+  flex-direction: column; /* En columna */
+  gap: 8px;             /* Espacio entre cada elemento */
+}
+
+/* Los enlaces del footer */
+.footer-lista a {
+  color: #cccccc;              /* Color gris */
+  font-size: 0.9rem;           /* Tamaño pequeño */
+  transition: color 0.3s ease; /* Transición del color */
+}
+
+/* Efecto de los enlaces del footer al pasar el mouse */
+.footer-lista a:hover {
+  color: var(--verde-claro); /* Se vuelven verdes */
+}
+
+/* Los botones de redes sociales */
+.redes-sociales {
+  display: flex;       /* Flexbox */
+  flex-direction: column; /* En columna */
+  gap: 10px;           /* Espacio entre cada red */
+}
+
+/* Cada enlace de red social */
+.red-social {
+  color: #cccccc;              /* Color gris */
+  font-size: 0.9rem;           /* Tamaño pequeño */
+  transition: color 0.3s ease, transform 0.2s ease; /* Doble transición */
+  display: inline-block;       /* Para que el transform funcione */
+}
+
+/* Efecto de las redes al pasar el mouse */
+.red-social:hover {
+  color: var(--verde-claro);  /* Se vuelve verde */
+  transform: translateX(5px); /* Se mueve a la derecha */
+}
+
+/* La línea de copyright al fondo */
+.footer-copy {
+  text-align: center;               /* Centrado */
+  padding-top: 20px;                /* Espacio arriba */
+  border-top: 1px solid #444444;   /* Línea divisoria gris */
+  font-size: 0.85rem;               /* Texto pequeño */
+  color: #888888;                   /* Color gris */
+}
+
+
+/* ===================================
+   ANIMACIONES CSS
+   =================================== */
+
+/* Animación de aparición desde abajo (para la portada) */
+@keyframes aparece {
+  from {
+    opacity: 0;               /* Empieza invisible */
+    transform: translateY(30px); /* Empieza 30px más abajo */
+  }
+  to {
+    opacity: 1;               /* Termina visible */
+    transform: translateY(0); /* Termina en su posición normal */
+  }
+}
+
+
+/* ===================================
+   DISEÑO RESPONSIVO (MEDIA QUERIES)
+   Adaptamos la página para pantallas pequeñas
+   =================================== */
+
+/* Para pantallas menores a 900px (tablets) */
+@media (max-width: 900px) {
+  
+  /* El grid de destinos pasa a 2 columnas */
+  .grid-destinos {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+
+  /* El footer pasa a 2 columnas */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+
+  /* El título de la portada se hace más pequeño */
+  .portada-titulo {
+    font-size: 2.5rem;
+  }
+}
+
+/* Para pantallas menores a 600px (celulares) */
+@media (max-width: 600px) {
+
+  /* El encabezado se pone en columna */
+  .encabezado {
+    flex-direction: column;  /* Logo arriba, nav abajo */
+    gap: 15px;               /* Espacio entre logo y nav */
+    padding: 15px 20px;      /* Menos padding */
+  }
+
+  /* Los enlaces del nav se juntan más */
+  .navegacion {
+    gap: 15px;     /* Menos espacio entre enlaces */
+    flex-wrap: wrap; /* Los enlaces bajan de línea si no caben */
+    justify-content: center; /* Centrado */
+  }
+
+  /* El grid de destinos pasa a 1 sola columna */
+  .grid-destinos {
+    grid-template-columns: 1fr; /* 1 columna */
+  }
+
+  /* El footer también pasa a 1 columna */
+  .footer-grid {
+    grid-template-columns: 1fr; /* 1 columna */
+  }
+
+  /* El título de la portada se hace aún más pequeño */
+  .portada-titulo {
+    font-size: 2rem;
+  }
+
+  /* Menos padding en las secciones */
+  .seccion-destinos,
+  .seccion-servicios,
+  .seccion-contacto {
+    padding: 50px 20px; /* Menos espacio en celulares */
+  }
+}
