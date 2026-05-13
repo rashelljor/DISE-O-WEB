@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenshell Hub - RECURSOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='central' font-size='80'>🌟</text></svg>"/>
+  <style>
+    :root {
+      --accent:        #66D2CE;
+      --accent-dim:    #66D2CE22;
+      --accent-mid:    #66D2CE55;
+      --accent-hover:  #8de8e4;
+      --bg-base:       #080e18;
+      --bg-layer:      #0c1422;
+      --bg-card:       #101c2e;
+      --bg-card-hover: #152440;
+      --text-bright:   #e2f4f3;
+      --text-mid:      #8bb8b6;
+      --text-muted:    #4a7a78;
+      --border:        #66D2CE1a;
+      --border-strong: #66D2CE44;
+      --radius-sm:     8px;
+      --radius-md:     12px;
+      --radius-lg:     18px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-bright);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .5;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background-color: var(--bg-layer);
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--border-strong);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 32px #00000060;
+    }
+
+    .header-brand h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px; font-weight: 800;
+      letter-spacing: -0.5px; color: var(--text-bright);
+    }
+    .header-brand h1 span { color: var(--accent); }
+    .header-brand p {
+      font-size: 10px; color: var(--text-muted);
+      letter-spacing: 3px; text-transform: uppercase; margin-top: 2px;
+    }
+
+    nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    nav a {
+      color: var(--text-mid); text-decoration: none;
+      font-size: 12.5px; padding: 5px 12px;
+      border-radius: 20px; border: 1px solid transparent;
+      transition: all .2s; font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--accent); border-color: var(--border-strong);
+      background: var(--accent-dim);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center; padding: 70px 20px 50px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, #66D2CE18 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, #66D2CE0a 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero .badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent-dim); border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 11px; font-weight: 600;
+      padding: 5px 16px; border-radius: 20px; margin-bottom: 22px;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .hero .badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(1.4); }
+    }
+    .hero h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px; font-weight: 800;
+      margin-bottom: 12px; line-height: 1.15; letter-spacing: -1px;
+    }
+    .hero h2 span { color: var(--accent); }
+    .hero p { color: var(--text-mid); font-size: 15px; margin-bottom: 32px; }
+
+    /* SEARCH */
+    .search-wrap { position: relative; display: inline-block; max-width: 420px; width: 100%; }
+    .search-wrap::before {
+      content: '⌕'; position: absolute; left: 17px; top: 50%;
+      transform: translateY(-50%); color: var(--accent); font-size: 18px; pointer-events: none;
+    }
+    .hero input {
+      width: 100%; padding: 13px 22px 13px 46px;
+      background: var(--bg-card); border: 1.5px solid var(--border-strong);
+      border-radius: 30px; color: var(--text-bright);
+      font-size: 14px; font-family: 'DM Sans', sans-serif;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .hero input::placeholder { color: var(--text-muted); }
+    .hero input:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-dim), 0 4px 20px #66D2CE18;
+    }
+
+    /* ── MAIN ── */
+    main { max-width: 1160px; margin: 0 auto; padding: 48px 24px 80px; position: relative; z-index: 1; }
+
+    /* ── SECTION ── */
+    .categoria { margin-bottom: 60px; }
+    .categoria > h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: var(--accent); letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .categoria > h3::before {
+      content: ''; display: block; width: 28px; height: 2px;
+      background: var(--accent); border-radius: 2px;
+    }
+    .categoria > h3::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* SUB-HEADING */
+    .subtitulo-pago {
+      font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--text-bright); margin: 28px 0 14px;
+      padding-left: 12px; border-left: 2px solid var(--accent);
+    }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+    }
+
+    /* SUB-GROUP LABEL inside grid */
+    .subgroup-label {
+      grid-column: 1 / -1;
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--text-muted); margin: 12px 0 4px;
+      padding: 4px 0; border-bottom: 1px solid var(--border); width: 100%;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 13px 13px;
+      text-decoration: none; color: var(--text-bright);
+      display: flex; align-items: center; gap: 11px;
+      transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
+      position: relative; overflow: hidden;
+    }
+    .card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); transform: scaleX(0);
+      transform-origin: left; transition: transform .25s ease;
+    }
+    .card:hover {
+      background: var(--bg-card-hover); border-color: var(--border-strong);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px #66D2CE10, 0 2px 8px #00000040;
+    }
+    .card:hover::after { transform: scaleX(1); }
+    .card.oculto { display: none; }
+
+    /* ── LOGO ── */
+    .logo {
+      width: 35px; height: 35px; border-radius: var(--radius-sm);
+      object-fit: contain; background: #ffffff12;
+      padding: 4px; flex-shrink: 0;
+      border: 1px solid var(--border-strong);
+      transition: transform .2s;
+    }
+    .card:hover .logo { transform: scale(1.06); }
+
+    /* ── CARD BODY ── */
+    .card-body { flex: 1; min-width: 0; }
+    .card-top {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 6px; margin-bottom: 2px;
+    }
+    .name {
+      font-size: 13px; font-weight: 600;
+      color: var(--text-bright); line-height: 1.25;
+      min-width: 0;
+    }
+    .card:hover .name { color: var(--accent); }
+
+    .rating {
+      font-size: 9px; font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim); border: 1px solid var(--accent-mid);
+      border-radius: 20px; padding: 1px 6px;
+      white-space: nowrap; flex-shrink: 0; letter-spacing: 0.3px;
+    }
+
+    .desc {
+      font-size: 10.5px; color: var(--text-muted);
+      line-height: 1.35; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider {
+      display: flex; align-items: center; gap: 14px;
+      margin: 48px 0 28px;
+    }
+    .section-divider h4 {
+      font-family: 'Syne', sans-serif; font-size: 17px;
+      font-weight: 700; color: var(--text-bright); white-space: nowrap;
+    }
+    .section-divider span {
+      font-size: 11px; color: var(--text-muted); font-weight: 500;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: var(--accent-dim); border: 1px solid var(--border-strong);
+      padding: 2px 10px; border-radius: 20px;
+    }
+    .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-layer); border-top: 1px solid var(--border);
+      text-align: center; padding: 24px;
+      font-size: 12.5px; color: var(--text-muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    footer a:hover { color: var(--accent-hover); }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-base); }
+    ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-mid); }
+
+    @media (max-width: 700px) {
+      header { flex-direction: column; gap: 12px; padding: 14px 16px; }
+      nav { justify-content: center; }
+      .hero h2 { font-size: 26px; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════ HEADER ════════════════════ -->
+<header>
+  <div class="header-brand">
+    <h1>Kenshell <span>Hub</span></h1>
+    <p>Aprendizaje y Recursos Académicos</p>
+  </div>
+  <nav>
+    <a href="#nucleo">Núcleo Operativo</a>
+    <a href="#ejec">Ejes de Ejecución</a>
+    <a href="#conoc">Ejes de Conocimiento</a>
+    <a href="#global">Global</a>
+    <a href="#esp">Especialidad</a>
+  </nav>
+</header>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<div class="hero">
+  <div class="badge">Mi Organizador Universitario</div>
+  <h2>Aprendizaje y <span>Recursos Académicos</span></h2>
+  <p>Encuentra rápido la herramienta que necesitas para estudiar y crear</p>
+  <div class="search-wrap">
+    <input type="text" id="buscador" placeholder="Buscar recurso... ᓚᘏᗢ" oninput="buscar()">
+  </div>
+</div>
+
+<!-- ════════════════════ MAIN ════════════════════ -->
+<main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  1. NÚCLEO OPERATIVO                               -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="categoria" id="nucleo">
+  <h3>Núcleo Operativo</h3>
+
+  <p class="subtitulo-pago">Planificación y Tareas</p>
+  <div class="grid">
+    <div class="subgroup-label">Tareas universitarias y consejos de los docentes</div>
+    <a class="card" href="https://padlet.com/81692646/pochoclos-7cq1oofawx2jb4l7" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=padlet.com&sz=64" alt="Padlet">
+      <div class="card-body"><div class="card-top"><div class="name">Padlet</div><div class="rating">★ 5/5</div></div><div class="desc">Muros digitales colaborativos</div></div>
+    </a>
+    <a class="card" href="https://www.todoist.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=todoist.com&sz=64" alt="Todoist">
+      <div class="card-body"><div class="card-top"><div class="name">Todoist</div><div class="rating">★ 5/5</div></div><div class="desc">Listas de tareas con prioridades</div></div>
+    </a>
+    <a class="card" href="https://obsidian.md" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=obsidian.md&sz=64" alt="Obsidian">
+      <div class="card-body"><div class="card-top"><div class="name">Obsidian</div><div class="rating">★ 5/5</div></div><div class="desc">Notas enlazadas y gestión del conocimiento</div></div>
+    </a>
+  </div>
+
+    <p class="subtitulo-pago">Organización grupal</p>
+    <div class="grid">
+    <div class="subgroup-label">Cuadernos Digitales</div>
+    <a class="card" href="https://notebooklm.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=64" alt="NotebookLM">
+      <div class="card-body"><div class="card-top"><div class="name">NotebookLM</div><div class="rating">★ 5/5</div></div><div class="desc">Cuaderno inteligente con IA para tus docs</div></div>
+    </a>
+    <div class="subgroup-label">Gestión de Proyectos</div>
+    <a class="card" href="https://www.trello.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=trello.com&sz=64" alt="Trello">
+      <div class="card-body"><div class="card-top"><div class="name">Trello</div><div class="rating">★ 5/5</div></div><div class="desc">Tableros visuales Kanban grupales</div></div>
+    </a>
+    <a class="card" href="https://www.notion.so" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=notion.so&sz=64" alt="Notion">
+      <div class="card-body"><div class="card-top"><div class="name">Notion</div><div class="rating">★ 5/5</div></div><div class="desc">Base de datos, notas y wikis personal</div></div>
+    </a>
+    <a class="card" href="https://keep.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=keep.google.com&sz=64" alt="Google Keep">
+      <div class="card-body"><div class="card-top"><div class="name">Google Keep</div><div class="rating">★ 5/5</div></div><div class="desc">Notas rápidas y recordatorios visuales</div></div>
+    </a>
+    <div class="subgroup-label">Agenda y Eventos</div>
+    <a class="card" href="https://calendar.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=calendar.google.com&sz=64" alt="Google Calendar">
+      <div class="card-body"><div class="card-top"><div class="name">Google Calendar</div><div class="rating">★ 5/5</div></div><div class="desc">Agenda eventos y recordatorios</div></div>
+    </a>
+    <div class="subgroup-label">Gestión del Tiempo</div>    
+    <a class="card" href="https://pomofocus.io/" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=pomofocus.io&sz=64" alt="Pomofocus">
+      <div class="card-body"><div class="card-top"><div class="name">Pomofocus</div><div class="rating">★ 5/5</div></div><div class="desc">Temporizador técnica Pomodoro</div></div>
+    </a>
+    </div>
+
+    
+    
+  
+
+  <p class="subtitulo-pago">Almacenamiento y Archivo</p>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/drive/" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=drive.google.com&sz=64" alt="Google Drive">
+      <div class="card-body"><div class="card-top"><div class="name">Google Drive</div><div class="rating">★ 5/5</div></div><div class="desc">Almacena y comparte colaborativamente</div></div>
+    </a>
+    <a class="card" href="https://www.onedrive.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=onedrive.live.com&sz=64" alt="OneDrive">
+      <div class="card-body"><div class="card-top"><div class="name">OneDrive</div><div class="rating">★ 5/5</div></div><div class="desc">Sincronización con ecosistema Windows</div></div>
+    </a>
+    <a class="card" href="https://www.dropbox.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=dropbox.com&sz=64" alt="Dropbox">
+      <div class="card-body"><div class="card-top"><div class="name">Dropbox</div><div class="rating">★ 5/5</div></div><div class="desc">Archivos en nube con respaldo automático</div></div>
+    </a>
+    <a class="card" href="https://mega.nz" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=mega.nz&sz=64" alt="MEGA">
+      <div class="card-body"><div class="card-top"><div class="name">MEGA</div><div class="rating">★ 5/5</div></div><div class="desc">20 GB gratis, cifrado extremo a extremo</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Comunicación Directa</p>
+  <div class="grid">
+    <div class="subgroup-label">Reuniones Virtuales</div>
+    <a class="card" href="https://meet.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=meet.google.com&sz=64" alt="Google Meet">
+      <div class="card-body"><div class="card-top"><div class="name">Google Meet</div><div class="rating">★ 5/5</div></div><div class="desc">Videoconferencias integradas con Google</div></div>
+    </a>
+    <a class="card" href="https://www.zoom.us" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=zoom.us&sz=64" alt="Zoom">
+      <div class="card-body"><div class="card-top"><div class="name">Zoom</div><div class="rating">★ 5/5</div></div><div class="desc">Videollamadas con grabación en la nube</div></div>
+    </a>
+    <a class="card" href="https://www.microsoft.com/en/microsoft-teams/group-chat-software" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=teams.microsoft.com&sz=64" alt="Microsoft Teams">
+      <div class="card-body"><div class="card-top"><div class="name">Microsoft Teams</div><div class="rating">★ 5/5</div></div><div class="desc">Colaboración y chat empresarial</div></div>
+    </a>
+    <div class="subgroup-label">Aplicaciones de Mensajería</div>
+    <a class="card" href="https://web.whatsapp.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=web.whatsapp.com&sz=64" alt="WhatsApp">
+      <div class="card-body"><div class="card-top"><div class="name">WhatsApp</div><div class="rating">★ 5/5</div></div><div class="desc">Mensajes y llamadas cifradas instantáneas</div></div>
+    </a>
+    <a class="card" href="https://telegram.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=telegram.org&sz=64" alt="Telegram">
+      <div class="card-body"><div class="card-top"><div class="name">Telegram</div><div class="rating">★ 5/5</div></div><div class="desc">Archivos pesados y canales masivos</div></div>
+    </a>
+    <a class="card" href="https://www.slack.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=slack.com&sz=64" alt="Slack">
+      <div class="card-body"><div class="card-top"><div class="name">Slack</div><div class="rating">★ 5/5</div></div><div class="desc">Canales temáticos e integraciones de apps</div></div>
+    </a>
+    <a class="card" href="https://discord.com/app" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=discord.com&sz=64" alt="Discord">
+      <div class="card-body"><div class="card-top"><div class="name">Discord</div><div class="rating">★ 5/5</div></div><div class="desc">Comunidades con voz, video y texto</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Colaboración en Tiempo Real</p>
+  <div class="grid">
+    <a class="card" href="https://miro.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=miro.com&sz=64" alt="Miro">
+      <div class="card-body"><div class="card-top"><div class="name">Miro</div><div class="rating">★ 5/5</div></div><div class="desc">Pizarra infinita para lluvia de ideas</div></div>
+    </a>
+    <a class="card" href="https://www.mural.co" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=mural.co&sz=64" alt="Mural">
+      <div class="card-body"><div class="card-top"><div class="name">Mural</div><div class="rating">★ 5/5</div></div><div class="desc">Espacio visual para resolución de problemas</div></div>
+    </a>
+    <a class="card" href="https://jamboard.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=jamboard.google.com&sz=64" alt="Jamboard">
+      <div class="card-body"><div class="card-top"><div class="name">Jamboard</div><div class="rating">★ 5/5</div></div><div class="desc">Pizarra digital de Google con notas</div></div>
+    </a>
+    <a class="card" href="https://mail.google.com/chat" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=chat.google.com&sz=64" alt="Google Chat">
+      <div class="card-body"><div class="card-top"><div class="name">Google Chat</div><div class="rating">★ 5/5</div></div><div class="desc">Mensajería integrada en Google Workspace</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  2. EJES DE EJECUCIÓN                              -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="categoria" id="ejec">
+  <h3>Ejes de Ejecución</h3>
+
+  <!-- ── A. Desarrollo Técnico ── -->
+  <div class="section-divider">
+    <h4>A. Desarrollo Técnico</h4>
+    <span>Programación e IA</span>
+  </div>
+
+  <p class="subtitulo-pago">Ecosistema de IAs</p>
+  <div class="grid">
+    <a class="card" href="https://chatgpt.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" alt="ChatGPT">
+      <div class="card-body"><div class="card-top"><div class="name">ChatGPT</div><div class="rating">★ 5/5</div></div><div class="desc">Generación de texto, código y brainstorming</div></div>
+    </a>
+    <a class="card" href="https://claude.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" alt="Claude">
+      <div class="card-body"><div class="card-top"><div class="name">Claude</div><div class="rating">★ 5/5</div></div><div class="desc">Calidad de redacción y análisis de docs</div></div>
+    </a>
+    <a class="card" href="https://grok.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=grok.com&sz=64" alt="Grok">
+      <div class="card-body"><div class="card-top"><div class="name">Grok</div><div class="rating">★ 5/5</div></div><div class="desc">Información en tiempo real desde X</div></div>
+    </a>
+    <a class="card" href="https://www.deepseek.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=deepseek.com&sz=64" alt="DeepSeek">
+      <div class="card-body"><div class="card-top"><div class="name">DeepSeek</div><div class="rating">★ 5/5</div></div><div class="desc">Razonamiento avanzado y programación</div></div>
+    </a>
+    <a class="card" href="https://gemini.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="Gemini">
+      <div class="card-body"><div class="card-top"><div class="name">Gemini</div><div class="rating">★ 5/5</div></div><div class="desc">Búsquedas Google, imágenes y Workspace</div></div>
+    </a>
+    <a class="card" href="https://www.perplexity.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=perplexity.ai&sz=64" alt="Perplexity AI">
+      <div class="card-body"><div class="card-top"><div class="name">Perplexity AI</div><div class="rating">★ 5/5</div></div><div class="desc">Investigación con fuentes citadas en tiempo real</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Entornos y Repositorios</p>
+  <div class="grid">
+    <a class="card" href="https://github.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="GitHub">
+      <div class="card-body"><div class="card-top"><div class="name">GitHub</div><div class="rating">★ 5/5</div></div><div class="desc">Control de versiones y proyectos open source</div></div>
+    </a>
+    <a class="card" href="https://replit.com/" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=replit.com&sz=64" alt="Replit">
+      <div class="card-body"><div class="card-top"><div class="name">Replit</div><div class="rating">★ 5/5</div></div><div class="desc">IDE en la nube para múltiples lenguajes</div></div>
+    </a>
+    <a class="card" href="https://colab.research.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=colab.research.google.com&sz=64" alt="Google Colab">
+      <div class="card-body"><div class="card-top"><div class="name">Google Colab</div><div class="rating">★ 5/5</div></div><div class="desc">Notebooks Python con GPUs gratis</div></div>
+    </a>
+    <a class="card" href="https://codepen.io" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=codepen.io&sz=64" alt="CodePen">
+      <div class="card-body"><div class="card-top"><div class="name">CodePen</div><div class="rating">★ 5/5</div></div><div class="desc">Playground frontend en vivo</div></div>
+    </a>
+    <a class="card" href="https://stackblitz.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=stackblitz.com&sz=64" alt="StackBlitz">
+      <div class="card-body"><div class="card-top"><div class="name">StackBlitz</div><div class="rating">★ 5/5</div></div><div class="desc">IDE web instantáneo con Node.js</div></div>
+    </a>
+    <a class="card" href="https://huggingface.co" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=64" alt="HuggingFace">
+      <div class="card-body"><div class="card-top"><div class="name">HuggingFace</div><div class="rating">★ 5/5</div></div><div class="desc">Repositorio de modelos de IA y ML</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Documentación y Consulta</p>
+  <div class="grid">
+    <a class="card" href="https://www.w3schools.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=w3schools.com&sz=64" alt="W3Schools">
+      <div class="card-body"><div class="card-top"><div class="name">W3Schools</div><div class="rating">★ 5/5</div></div><div class="desc">Referencia HTML/CSS/JS con editor</div></div>
+    </a>
+    <a class="card" href="https://developer.mozilla.org/es" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=developer.mozilla.org&sz=64" alt="MDN Web Docs">
+      <div class="card-body"><div class="card-top"><div class="name">MDN Web Docs</div><div class="rating">★ 5/5</div></div><div class="desc">Documentación oficial de tecnologías web</div></div>
+    </a>
+    <a class="card" href="https://www.wolframalpha.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=wolframalpha.com&sz=64" alt="Wolfram Alpha">
+      <div class="card-body"><div class="card-top"><div class="name">Wolfram Alpha</div><div class="rating">★ 5/5</div></div><div class="desc">Computación, datos y ecuaciones exactas</div></div>
+    </a>
+    <a class="card" href="https://www.stackoverflow.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=stackoverflow.com&sz=64" alt="Stack Overflow">
+      <div class="card-body"><div class="card-top"><div class="name">Stack Overflow</div><div class="rating">★ 5/5</div></div><div class="desc">Comunidad global de programadores</div></div>
+    </a>
+    <a class="card" href="https://devdocs.io" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=devdocs.io&sz=64" alt="DevDocs">
+      <div class="card-body"><div class="card-top"><div class="name">DevDocs</div><div class="rating">★ 5/5</div></div><div class="desc">Documentaciones unificadas offline</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Buscadores Académicos y Bases de Datos</p>
+  <div class="grid">
+    <a class="card" href="https://www.scielo.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=scielo.org&sz=64" alt="Scielo">
+      <div class="card-body"><div class="card-top"><div class="name">Scielo</div><div class="rating">★ 5/5</div></div><div class="desc">Revistas académicas de Latinoamérica</div></div>
+    </a>
+    <a class="card" href="https://www.redalyc.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=redalyc.org&sz=64" alt="Redalyc">
+      <div class="card-body"><div class="card-top"><div class="name">Redalyc</div><div class="rating">★ 5/5</div></div><div class="desc">Artículos científicos de acceso abierto</div></div>
+    </a>
+    <a class="card" href="https://www.proquest.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=proquest.com&sz=64" alt="ProQuest">
+      <div class="card-body"><div class="card-top"><div class="name">ProQuest</div><div class="rating">★ 5/5</div></div><div class="desc">Tesis y artículos especializados</div></div>
+    </a>
+    <a class="card" href="https://www.semanticscholar.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=semanticscholar.org&sz=64" alt="Semantic Scholar">
+      <div class="card-body"><div class="card-top"><div class="name">Semantic Scholar</div><div class="rating">★ 5/5</div></div><div class="desc">Buscador académico con IA</div></div>
+    </a>
+    <a class="card" href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=pubmed.ncbi.nlm.nih.gov&sz=64" alt="PubMed">
+      <div class="card-body"><div class="card-top"><div class="name">PubMed</div><div class="rating">★ 5/5</div></div><div class="desc">Literatura biomédica y ciencias de la salud</div></div>
+    </a>
+    <a class="card" href="https://eric.ed.gov" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=eric.ed.gov&sz=64" alt="ERIC">
+      <div class="card-body"><div class="card-top"><div class="name">ERIC</div><div class="rating">★ 5/5</div></div><div class="desc">Investigación y recursos educativos</div></div>
+    </a>
+    <a class="card" href="https://sci-hub.se" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=sci-hub.se&sz=64" alt="Sci-Hub">
+      <div class="card-body"><div class="card-top"><div class="name">Sci-Hub</div><div class="rating">★ 5/5</div></div><div class="desc">Artículos científicos de acceso libre</div></div>
+    </a>
+    <a class="card" href="https://scholar.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=scholar.google.com&sz=64" alt="Google Scholar">
+      <div class="card-body"><div class="card-top"><div class="name">Google Scholar</div><div class="rating">★ 5/5</div></div><div class="desc">Literatura académica, tesis y libros</div></div>
+    </a>
+    <a class="card" href="https://annas-archive.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=annas-archive.org&sz=64" alt="Anna's Archive">
+      <div class="card-body"><div class="card-top"><div class="name">Anna's Archive</div><div class="rating">★ 5/5</div></div><div class="desc">Preserva y da acceso a libros digitales</div></div>
+    </a>
+    <a class="card" href="https://www.nasa.gov" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=nasa.gov&sz=64" alt="NASA">
+      <div class="card-body"><div class="card-top"><div class="name">NASA</div><div class="rating">★ 5/5</div></div><div class="desc">Misiones espaciales y descubrimientos</div></div>
+    </a>
+    <a class="card" href="https://www.nature.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=nature.com&sz=64" alt="Nature">
+      <div class="card-body"><div class="card-top"><div class="name">Nature</div><div class="rating">★ 5/5</div></div><div class="desc">Revista científica de vanguardia mundial</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Herramientas de Investigación</p>
+  <div class="grid">
+    <a class="card" href="https://www.researchgate.net" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=researchgate.net&sz=64" alt="ResearchGate">
+      <div class="card-body"><div class="card-top"><div class="name">ResearchGate</div><div class="rating">★ 5/5</div></div><div class="desc">Red de investigadores y publicaciones</div></div>
+    </a>
+    <a class="card" href="https://www.zotero.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=zotero.org&sz=64" alt="Zotero">
+      <div class="card-body"><div class="card-top"><div class="name">Zotero</div><div class="rating">★ 5/5</div></div><div class="desc">Gestión de citas bibliográficas</div></div>
+    </a>
+    <a class="card" href="https://www.mendeley.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=mendeley.com&sz=64" alt="Mendeley">
+      <div class="card-body"><div class="card-top"><div class="name">Mendeley</div><div class="rating">★ 5/5</div></div><div class="desc">Referencias, PDFs y redes de investigación</div></div>
+    </a>
+    <a class="card" href="https://www.cite.me" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=cite.me&sz=64" alt="Cite.me">
+      <div class="card-body"><div class="card-top"><div class="name">Cite.me</div><div class="rating">★ 5/5</div></div><div class="desc">Generación automática de citas APA/MLA</div></div>
+    </a>
+    <a class="card" href="https://archive.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=archive.org&sz=64" alt="Internet Archive">
+      <div class="card-body"><div class="card-top"><div class="name">Internet Archive</div><div class="rating">★ 5/5</div></div><div class="desc">Versiones antiguas web y libros digitales</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Escritura y Lectura</p>
+  <div class="grid">
+    <a class="card" href="https://www.overleaf.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=overleaf.com&sz=64" alt="Overleaf">
+      <div class="card-body"><div class="card-top"><div class="name">Overleaf</div><div class="rating">★ 5/5</div></div><div class="desc">Documentos académicos con LaTeX</div></div>
+    </a>
+    <a class="card" href="https://www.grammarly.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=grammarly.com&sz=64" alt="Grammarly">
+      <div class="card-body"><div class="card-top"><div class="name">Grammarly</div><div class="rating">★ 5/5</div></div><div class="desc">Gramática, ortografía y tono en inglés</div></div>
+    </a>
+    <a class="card" href="https://hemingwayapp.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=hemingwayapp.com&sz=64" alt="Hemingway App">
+      <div class="card-body"><div class="card-top"><div class="name">Hemingway App</div><div class="rating">★ 5/5</div></div><div class="desc">Claridad eliminando frases complejas</div></div>
+    </a>
+    <a class="card" href="https://quillbot.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=quillbot.com&sz=64" alt="QuillBot">
+      <div class="card-body"><div class="card-top"><div class="name">QuillBot</div><div class="rating">★ 5/5</div></div><div class="desc">Parafraseo y resumen de artículos</div></div>
+    </a>
+    <a class="card" href="https://www.lamuleta.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=lamuleta.com&sz=64" alt="La Muleta del Escritor">
+      <div class="card-body"><div class="card-top"><div class="name">La Muleta del Escritor</div><div class="rating">★ 5/5</div></div><div class="desc">Sinónimos para escritura narrativa</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Herramientas PDF</p>
+  <div class="grid">
+    <a class="card" href="https://smallpdf.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=smallpdf.com&sz=64" alt="Smallpdf">
+      <div class="card-body"><div class="card-top"><div class="name">Smallpdf</div><div class="rating">★ 5/5</div></div><div class="desc">Comprime, convierte y une PDFs</div></div>
+    </a>
+    <a class="card" href="https://www.chatpdf.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=chatpdf.com&sz=64" alt="ChatPDF">
+      <div class="card-body"><div class="card-top"><div class="name">ChatPDF</div><div class="rating">★ 5/5</div></div><div class="desc">Chatea con tus PDFs para extraer info</div></div>
+    </a>
+    <a class="card" href="https://pdfchat.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=pdfchat.ai&sz=64" alt="PDFChat">
+      <div class="card-body"><div class="card-top"><div class="name">PDFChat</div><div class="rating">★ 5/5</div></div><div class="desc">Preguntas específicas a documentos PDF</div></div>
+    </a>
+  </div>
+
+  <!-- ── B. Creación ── -->
+  <div class="section-divider">
+    <h4>B. Creación</h4>
+    <span>Diseño y Escritura Creativa</span>
+  </div>
+
+  <p class="subtitulo-pago">Presentaciones con IA</p>
+  <div class="grid">
+    <a class="card" href="https://www.popai.pro" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=popai.pro&sz=64" alt="PopAI">
+      <div class="card-body"><div class="card-top"><div class="name">PopAI</div><div class="rating">★ 5/5</div></div><div class="desc">PDFs a presentaciones y diagramas</div></div>
+    </a>
+    <a class="card" href="https://express.adobe.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=express.adobe.com&sz=64" alt="Adobe Express">
+      <div class="card-body"><div class="card-top"><div class="name">Adobe Express</div><div class="rating">★ 5/5</div></div><div class="desc">Edición de fotos y contenido visual Adobe</div></div>
+    </a>
+    <a class="card" href="https://gamma.app" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=gamma.app&sz=64" alt="Gamma">
+      <div class="card-body"><div class="card-top"><div class="name">Gamma</div><div class="rating">★ 5/5</div></div><div class="desc">Presentaciones y docs desde texto</div></div>
+    </a>
+    <a class="card" href="https://www.beautiful.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=beautiful.ai&sz=64" alt="Beautiful.ai">
+      <div class="card-body"><div class="card-top"><div class="name">Beautiful.ai</div><div class="rating">★ 5/5</div></div><div class="desc">Diapositivas que se ajustan solas</div></div>
+    </a>
+    <a class="card" href="https://wonderslide.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=wonderslide.com&sz=64" alt="Wonderslide">
+      <div class="card-body"><div class="card-top"><div class="name">Wonderslide</div><div class="rating">★ 5/5</div></div><div class="desc">Diseño de slides automático con IA</div></div>
+    </a>
+    <a class="card" href="https://www.visme.co" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=visme.co&sz=64" alt="Visme">
+      <div class="card-body"><div class="card-top"><div class="name">Visme</div><div class="rating">★ 5/5</div></div><div class="desc">Infografías y contenido visual interactivo</div></div>
+    </a>
+    <a class="card" href="https://giz.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=giz.ai&sz=64" alt="GizAI">
+      <div class="card-body"><div class="card-top"><div class="name">GizAI</div><div class="rating">★ 5/5</div></div><div class="desc">Generación de contenido y automatización</div></div>
+    </a>
+    <a class="card" href="https://teachy.app" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=teachy.app&sz=64" alt="Teachy">
+      <div class="card-body"><div class="card-top"><div class="name">Teachy</div><div class="rating">★ 5/5</div></div><div class="desc">Recursos educativos para docentes</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Diagramación y Prototipado</p>
+  <div class="grid">
+    <a class="card" href="https://miro.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=miro.com&sz=64" alt="Miro">
+      <div class="card-body"><div class="card-top"><div class="name">Miro</div><div class="rating">★ 5/5</div></div><div class="desc">Pizarra infinita para equipos</div></div>
+    </a>
+    <a class="card" href="https://www.lucidchart.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=lucidchart.com&sz=64" alt="Lucidchart">
+      <div class="card-body"><div class="card-top"><div class="name">Lucidchart</div><div class="rating">★ 5/5</div></div><div class="desc">Diagramas y organigramas profesionales</div></div>
+    </a>
+    <a class="card" href="https://boardmix.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=boardmix.com&sz=64" alt="Boardmix">
+      <div class="card-body"><div class="card-top"><div class="name">Boardmix</div><div class="rating">★ 5/5</div></div><div class="desc">Pizarra con mapas mentales y gestión</div></div>
+    </a>
+    <a class="card" href="https://coggle.it" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=coggle.it&sz=64" alt="Coggle">
+      <div class="card-body"><div class="card-top"><div class="name">Coggle</div><div class="rating">★ 5/5</div></div><div class="desc">Mapas mentales colaborativos</div></div>
+    </a>
+    <a class="card" href="https://www.diagrams.net" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=diagrams.net&sz=64" alt="Draw.io">
+      <div class="card-body"><div class="card-top"><div class="name">Draw.io</div><div class="rating">★ 5/5</div></div><div class="desc">Diagramas de flujo gratis sin registro</div></div>
+    </a>
+    <a class="card" href="https://whimsical.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=whimsical.com&sz=64" alt="Whimsical">
+      <div class="card-body"><div class="card-top"><div class="name">Whimsical</div><div class="rating">★ 5/5</div></div><div class="desc">Mapas mentales y wireframes limpios</div></div>
+    </a>
+    <a class="card" href="https://excalidraw.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=excalidraw.com&sz=64" alt="Excalidraw">
+      <div class="card-body"><div class="card-top"><div class="name">Excalidraw</div><div class="rating">★ 5/5</div></div><div class="desc">Diagramas con estética de dibujo a mano</div></div>
+    </a>
+    <a class="card" href="https://napkin.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=napkin.ai&sz=64" alt="Napkin">
+      <div class="card-body"><div class="card-top"><div class="name">Napkin</div><div class="rating">★ 5/5</div></div><div class="desc">Texto a diagramas automáticamente</div></div>
+    </a>
+    <a class="card" href="https://mylens.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=mylens.ai&sz=64" alt="MyLens">
+      <div class="card-body"><div class="card-top"><div class="name">MyLens.AI</div><div class="rating">★ 5/5</div></div><div class="desc">Líneas de tiempo visuales automáticas</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Actividades Educativas</p>
+  <div class="grid">
+    <a class="card" href="https://twee.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=twee.com&sz=64" alt="Twee">
+      <div class="card-body"><div class="card-top"><div class="name">Twee</div><div class="rating">★ 5/5</div></div><div class="desc">Ejercicios educativos desde YouTube</div></div>
+    </a>
+    <a class="card" href="https://apps.ankiweb.net" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=apps.ankiweb.net&sz=64" alt="Anki">
+      <div class="card-body"><div class="card-top"><div class="name">Anki</div><div class="rating">★ 5/5</div></div><div class="desc">Flashcards con repetición espaciada</div></div>
+    </a>
+    <a class="card" href="https://www.wooclap.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=wooclap.com&sz=64" alt="Wooclap">
+      <div class="card-body"><div class="card-top"><div class="name">Wooclap</div><div class="rating">★ 5/5</div></div><div class="desc">Encuestas interactivas en tiempo real</div></div>
+    </a>
+    <a class="card" href="https://conker.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=conker.ai&sz=64" alt="Conker IA">
+      <div class="card-body"><div class="card-top"><div class="name">Conker IA</div><div class="rating">★ 5/5</div></div><div class="desc">Cuestionarios y exámenes con IA</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Imágenes con IA</p>
+  <div class="grid">
+    <a class="card" href="https://www.midjourney.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=midjourney.com&sz=64" alt="MidJourney">
+      <div class="card-body"><div class="card-top"><div class="name">MidJourney</div><div class="rating">★ 5/5</div></div><div class="desc">Imágenes artísticas de alta calidad</div></div>
+    </a>
+    <a class="card" href="https://ideogram.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=ideogram.ai&sz=64" alt="Ideogram">
+      <div class="card-body"><div class="card-top"><div class="name">Ideogram</div><div class="rating">★ 5/5</div></div><div class="desc">Imágenes con tipografía precisa</div></div>
+    </a>
+    <a class="card" href="https://hotpot.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=hotpot.ai&sz=64" alt="Hotpot">
+      <div class="card-body"><div class="card-top"><div class="name">Hotpot</div><div class="rating">★ 5/5</div></div><div class="desc">Edición de fotos y restauración con IA</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Diseño Visual desde Cero</p>
+  <div class="grid">
+    <a class="card" href="https://www.figma.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=figma.com&sz=64" alt="Figma">
+      <div class="card-body"><div class="card-top"><div class="name">Figma</div><div class="rating">★ 5/5</div></div><div class="desc">Diseño UI/UX colaborativo en tiempo real</div></div>
+    </a>
+    <a class="card" href="https://www.canva.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=canva.com&sz=64" alt="Canva">
+      <div class="card-body"><div class="card-top"><div class="name">Canva</div><div class="rating">★ 5/5</div></div><div class="desc">Diseños gráficos con plantillas profesionales</div></div>
+    </a>
+    <a class="card" href="https://genially.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=genially.com&sz=64" alt="Genially">
+      <div class="card-body"><div class="card-top"><div class="name">Genially</div><div class="rating">★ 5/5</div></div><div class="desc">Presentaciones e infografías interactivas</div></div>
+    </a>
+    <a class="card" href="https://www.powtoon.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=powtoon.com&sz=64" alt="Powtoon">
+      <div class="card-body"><div class="card-top"><div class="name">Powtoon</div><div class="rating">★ 5/5</div></div><div class="desc">Videos y presentaciones animadas</div></div>
+    </a>
+    <a class="card" href="https://www.easel.ly" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=easel.ly&sz=64" alt="Easelly">
+      <div class="card-body"><div class="card-top"><div class="name">Easelly</div><div class="rating">★ 5/5</div></div><div class="desc">Infografías con plantillas prediseñadas</div></div>
+    </a>
+    <a class="card" href="https://www.stitchdata.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=stitchdata.com&sz=64" alt="Stitch">
+      <div class="card-body"><div class="card-top"><div class="name">Stitch</div><div class="rating">★ 5/5</div></div><div class="desc">Conecta datos entre distintas plataformas</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Recursos y Estética</p>
+  <div class="grid">
+    <div class="subgroup-label">Teoría del Color</div>
+    <a class="card" href="https://colorhunt.co" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=colorhunt.co&sz=64" alt="Color Hunt">
+      <div class="card-body"><div class="card-top"><div class="name">Color Hunt</div><div class="rating">★ 5/5</div></div><div class="desc">Paletas de colores tendencia</div></div>
+    </a>
+    <a class="card" href="https://coolors.co" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=coolors.co&sz=64" alt="Coolors">
+      <div class="card-body"><div class="card-top"><div class="name">Coolors</div><div class="rating">★ 5/5</div></div><div class="desc">Generador de esquemas de colores</div></div>
+    </a>
+    <a class="card" href="https://color.adobe.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=color.adobe.com&sz=64" alt="Adobe Color">
+      <div class="card-body"><div class="card-top"><div class="name">Adobe Color</div><div class="rating">★ 5/5</div></div><div class="desc">Temas basados en teoría del color</div></div>
+    </a>
+    <a class="card" href="https://www.realtimecolors.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=realtimecolors.com&sz=64" alt="Realtimecolors">
+      <div class="card-body"><div class="card-top"><div class="name">Realtimecolors</div><div class="rating">★ 5/5</div></div><div class="desc">Previsualización de paletas en sitio real</div></div>
+    </a>
+    <div class="subgroup-label">Tipografía</div>
+    <a class="card" href="https://fonts.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=fonts.google.com&sz=64" alt="Google Fonts">
+      <div class="card-body"><div class="card-top"><div class="name">Google Fonts</div><div class="rating">★ 5/5</div></div><div class="desc">Tipografías gratuitas de alta calidad</div></div>
+    </a>
+    <div class="subgroup-label">Ilustraciones</div>
+    <a class="card" href="https://www.openpeeps.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=openpeeps.com&sz=64" alt="Open Peeps">
+      <div class="card-body"><div class="card-top"><div class="name">Open Peeps</div><div class="rating">★ 5/5</div></div><div class="desc">Personajes ilustrados personalizables</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Video y Animación</p>
+  <div class="grid">
+    <a class="card" href="https://www.capcut.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=capcut.com&sz=64" alt="CapCut">
+      <div class="card-body"><div class="card-top"><div class="name">CapCut</div><div class="rating">★ 5/5</div></div><div class="desc">Edición de video con subtítulos automáticos</div></div>
+    </a>
+    <a class="card" href="https://www.animaker.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=animaker.com&sz=64" alt="Animaker">
+      <div class="card-body"><div class="card-top"><div class="name">Animaker</div><div class="rating">★ 5/5</div></div><div class="desc">Videos animados con personajes</div></div>
+    </a>
+    <a class="card" href="https://sketch.metademolab.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=sketch.metademolab.com&sz=64" alt="Animated Drawings">
+      <div class="card-body"><div class="card-top"><div class="name">Animated Drawings</div><div class="rating">★ 5/5</div></div><div class="desc">Anima dibujos a mano para niños</div></div>
+    </a>
+    <a class="card" href="https://www.heygen.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=heygen.com&sz=64" alt="HeyGen">
+      <div class="card-body"><div class="card-top"><div class="name">HeyGen</div><div class="rating">★ 5/5</div></div><div class="desc">Videos con avatares realistas y voz</div></div>
+    </a>
+    <a class="card" href="https://videogen.ai" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=videogen.ai&sz=64" alt="VideoGen">
+      <div class="card-body"><div class="card-top"><div class="name">VideoGen</div><div class="rating">★ 5/5</div></div><div class="desc">Videos profesionales desde texto</div></div>
+    </a>
+    <a class="card" href="https://runwayml.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=runwayml.com&sz=64" alt="Runway ML">
+      <div class="card-body"><div class="card-top"><div class="name">Runway ML</div><div class="rating">★ 5/5</div></div><div class="desc">Edición de video avanzada con IA</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  3. EJES DE CONOCIMIENTO                           -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="categoria" id="conoc">
+  <h3>Ejes de Conocimiento</h3>
+
+  <!-- ── A. Aprendizaje Técnico ── -->
+  <div class="section-divider">
+    <h4>A. Aprendizaje Técnico</h4>
+    <span>Cursos y Ciencias</span>
+  </div>
+
+  <p class="subtitulo-pago">Cursos Generales</p>
+  <div class="grid">
+    <a class="card" href="https://www.khanacademy.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=khanacademy.org&sz=64" alt="Khan Academy">
+      <div class="card-body"><div class="card-top"><div class="name">Khan Academy</div><div class="rating">★ 5/5</div></div><div class="desc">Matemáticas, ciencia y más, gratis</div></div>
+    </a>
+    <a class="card" href="https://www.coursera.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=64" alt="Coursera">
+      <div class="card-body"><div class="card-top"><div class="name">Coursera</div><div class="rating">★ 5/5</div></div><div class="desc">Certificaciones de universidades top</div></div>
+    </a>
+    <a class="card" href="https://www.udemy.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=udemy.com&sz=64" alt="Udemy">
+      <div class="card-body"><div class="card-top"><div class="name">Udemy</div><div class="rating">★ 5/5</div></div><div class="desc">Cursos sobre casi cualquier tema</div></div>
+    </a>
+    <a class="card" href="https://www.edx.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=edx.org&sz=64" alt="edX">
+      <div class="card-body"><div class="card-top"><div class="name">edX</div><div class="rating">★ 5/5</div></div><div class="desc">Cursos de Harvard, MIT y más</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Ciencias Exactas y Simuladores</p>
+  <div class="grid">
+    <a class="card" href="https://www.symbolab.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=symbolab.com&sz=64" alt="Symbolab">
+      <div class="card-body"><div class="card-top"><div class="name">Symbolab</div><div class="rating">★ 5/5</div></div><div class="desc">Problemas matemáticos paso a paso</div></div>
+    </a>
+    <a class="card" href="https://www.mathway.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=mathway.com&sz=64" alt="Mathway">
+      <div class="card-body"><div class="card-top"><div class="name">Mathway</div><div class="rating">★ 5/5</div></div><div class="desc">Aritmética hasta cálculo avanzado</div></div>
+    </a>
+    <a class="card" href="https://www.geogebra.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=geogebra.org&sz=64" alt="GeoGebra">
+      <div class="card-body"><div class="card-top"><div class="name">GeoGebra</div><div class="rating">★ 5/5</div></div><div class="desc">Funciones y geometría interactiva</div></div>
+    </a>
+    <a class="card" href="https://www.desmos.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=desmos.com&sz=64" alt="Desmos">
+      <div class="card-body"><div class="card-top"><div class="name">Desmos</div><div class="rating">★ 5/5</div></div><div class="desc">Graficadora y actividades interactivas</div></div>
+    </a>
+    <a class="card" href="https://www.wolframalpha.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=wolframalpha.com&sz=64" alt="Wolfram Alpha">
+      <div class="card-body"><div class="card-top"><div class="name">Wolfram Alpha</div><div class="rating">★ 5/5</div></div><div class="desc">Ecuaciones y datos científicos exactos</div></div>
+    </a>
+    <a class="card" href="https://www.chemspider.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=chemspider.com&sz=64" alt="ChemSpider">
+      <div class="card-body"><div class="card-top"><div class="name">ChemSpider</div><div class="rating">★ 5/5</div></div><div class="desc">Estructuras y propiedades químicas</div></div>
+    </a>
+    <a class="card" href="https://phet.colorado.edu" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=phet.colorado.edu&sz=64" alt="PhET">
+      <div class="card-body"><div class="card-top"><div class="name">PhET</div><div class="rating">★ 5/5</div></div><div class="desc">Simulaciones de física, química y biología</div></div>
+    </a>
+  </div>
+
+  <!-- ── B. Gestión Universitaria ── -->
+  <div class="section-divider">
+    <h4>B. Gestión Universitaria</h4>
+    <span>Acceso Directo</span>
+  </div>
+
+  <p class="subtitulo-pago">Ecosistema Google</p>
+  <div class="grid">
+    <a class="card" href="https://gemini.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="Gemini">
+      <div class="card-body"><div class="card-top"><div class="name">Gemini</div><div class="rating">★ 5/5</div></div><div class="desc">Búsquedas, imágenes y automatización</div></div>
+    </a>
+    <a class="card" href="https://www.google.com/drive/" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=drive.google.com&sz=64" alt="Google Drive">
+      <div class="card-body"><div class="card-top"><div class="name">Google Drive</div><div class="rating">★ 5/5</div></div><div class="desc">Almacenamiento colaborativo en la nube</div></div>
+    </a>
+    <a class="card" href="https://mail.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=gmail.com&sz=64" alt="Gmail">
+      <div class="card-body"><div class="card-top"><div class="name">Gmail</div><div class="rating">★ 5/5</div></div><div class="desc">Correo con filtros inteligentes</div></div>
+    </a>
+    <a class="card" href="https://mail.google.com/chat" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=chat.google.com&sz=64" alt="Google Chat">
+      <div class="card-body"><div class="card-top"><div class="name">Google Chat</div><div class="rating">★ 5/5</div></div><div class="desc">Mensajería en Google Workspace</div></div>
+    </a>
+    <a class="card" href="https://classroom.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=classroom.google.com&sz=64" alt="Google Classroom">
+      <div class="card-body"><div class="card-top"><div class="name">Google Classroom</div><div class="rating">★ 5/5</div></div><div class="desc">Gestión de clases virtuales</div></div>
+    </a>
+    <a class="card" href="https://docs.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=docs.google.com&sz=64" alt="Google Docs">
+      <div class="card-body"><div class="card-top"><div class="name">Google Docs</div><div class="rating">★ 5/5</div></div><div class="desc">Documentos colaborativos en la nube</div></div>
+    </a>
+    <a class="card" href="https://slides.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=slides.google.com&sz=64" alt="Google Slides">
+      <div class="card-body"><div class="card-top"><div class="name">Google Slides</div><div class="rating">★ 5/5</div></div><div class="desc">Presentaciones guardadas en Drive</div></div>
+    </a>
+    <a class="card" href="https://sheets.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=sheets.google.com&sz=64" alt="Google Sheets">
+      <div class="card-body"><div class="card-top"><div class="name">Google Sheets</div><div class="rating">★ 5/5</div></div><div class="desc">Hojas de cálculo compartidas</div></div>
+    </a>
+    <a class="card" href="https://forms.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=forms.google.com&sz=64" alt="Google Forms">
+      <div class="card-body"><div class="card-top"><div class="name">Google Forms</div><div class="rating">★ 5/5</div></div><div class="desc">Encuestas y formularios automáticos</div></div>
+    </a>
+    <a class="card" href="https://jamboard.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=jamboard.google.com&sz=64" alt="Jamboard">
+      <div class="card-body"><div class="card-top"><div class="name">Jamboard</div><div class="rating">★ 5/5</div></div><div class="desc">Pizarra digital colaborativa de Google</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Ecosistema Microsoft</p>
+  <div class="grid">
+    <a class="card" href="https://copilot.microsoft.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=64" alt="Copilot">
+      <div class="card-body"><div class="card-top"><div class="name">Copilot</div><div class="rating">★ 5/5</div></div><div class="desc">IA integrada en Microsoft 365</div></div>
+    </a>
+    <a class="card" href="https://www.bing.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=bing.com&sz=64" alt="Bing AI">
+      <div class="card-body"><div class="card-top"><div class="name">Bing AI</div><div class="rating">★ 5/5</div></div><div class="desc">Búsqueda con citas y generación DALL-E 3</div></div>
+    </a>
+    <a class="card" href="https://www.onedrive.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=onedrive.live.com&sz=64" alt="OneDrive">
+      <div class="card-body"><div class="card-top"><div class="name">OneDrive</div><div class="rating">★ 5/5</div></div><div class="desc">Sincronización con Office y Windows</div></div>
+    </a>
+    <a class="card" href="https://www.microsoft.com/en/microsoft-teams/group-chat-software" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=teams.microsoft.com&sz=64" alt="Microsoft Teams">
+      <div class="card-body"><div class="card-top"><div class="name">Microsoft Teams</div><div class="rating">★ 5/5</div></div><div class="desc">Colaboración y videoconferencias</div></div>
+    </a>
+    <a class="card" href="https://www.office.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=office.com&sz=64" alt="Office 365">
+      <div class="card-body"><div class="card-top"><div class="name">Office 365</div><div class="rating">★ 5/5</div></div><div class="desc">Suite completa de productividad Microsoft</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Extracurriculares</p>
+  <div class="grid">
+    <a class="card" href="https://academy.oracle.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=academy.oracle.com&sz=64" alt="Oracle Academy">
+      <div class="card-body"><div class="card-top"><div class="name">Oracle Academy</div><div class="rating">★ 5/5</div></div><div class="desc">Computación, bases de datos y Java</div></div>
+    </a>
+    <a class="card" href="https://www.netacad.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=netacad.com&sz=64" alt="Cisco Net Academy">
+      <div class="card-body"><div class="card-top"><div class="name">Cisco Net Academy</div><div class="rating">★ 5/5</div></div><div class="desc">Redes, ciberseguridad e IoT certificado</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  4. GLOBAL                                         -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="categoria" id="global">
+  <h3>Global</h3>
+
+  <p class="subtitulo-pago">Aprendizaje de Idiomas</p>
+  <div class="grid">
+    <a class="card" href="https://www.duolingo.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=duolingo.com&sz=64" alt="Duolingo">
+      <div class="card-body"><div class="card-top"><div class="name">Duolingo</div><div class="rating">★ 5/5</div></div><div class="desc">Idiomas con juegos y lecciones diarias</div></div>
+    </a>
+    <a class="card" href="https://www.busuu.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=busuu.com&sz=64" alt="Busuu">
+      <div class="card-body"><div class="card-top"><div class="name">Busuu</div><div class="rating">★ 5/5</div></div><div class="desc">Práctica con hablantes nativos</div></div>
+    </a>
+    <a class="card" href="https://www.italki.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=italki.com&sz=64" alt="iTalki">
+      <div class="card-body"><div class="card-top"><div class="name">iTalki</div><div class="rating">★ 5/5</div></div><div class="desc">Clases con profesores nativos</div></div>
+    </a>
+    <a class="card" href="https://www.deepl.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=deepl.com&sz=64" alt="DeepL">
+      <div class="card-body"><div class="card-top"><div class="name">DeepL</div><div class="rating">★ 5/5</div></div><div class="desc">Traducción precisa y natural</div></div>
+    </a>
+    <a class="card" href="https://www.bbc.co.uk/learningenglish" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=bbc.co.uk&sz=64" alt="BBC Learning English">
+      <div class="card-body"><div class="card-top"><div class="name">BBC Learning English</div><div class="rating">★ 5/5</div></div><div class="desc">Inglés con noticias y situaciones reales</div></div>
+    </a>
+    <a class="card" href="https://languagetool.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=languagetool.org&sz=64" alt="LanguageTool">
+      <div class="card-body"><div class="card-top"><div class="name">LanguageTool</div><div class="rating">★ 5/5</div></div><div class="desc">Corrector ortográfico multilenguaje</div></div>
+    </a>
+    <a class="card" href="https://www.wordreference.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=wordreference.com&sz=64" alt="WordReference">
+      <div class="card-body"><div class="card-top"><div class="name">WordReference</div><div class="rating">★ 5/5</div></div><div class="desc">Diccionario bilingüe con foros</div></div>
+    </a>
+    <a class="card" href="https://www.cross-plus-a.com/balabolka.htm" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=cross-plus-a.com&sz=64" alt="Balabolka">
+      <div class="card-body"><div class="card-top"><div class="name">Balabolka</div><div class="rating">★ 5/5</div></div><div class="desc">Convierte texto a audio (TTS)</div></div>
+    </a>
+  </div>
+
+  <p class="subtitulo-pago">Entretenimiento</p>
+  <div class="grid">
+    <a class="card" href="https://discord.com/app" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=discord.com&sz=64" alt="Discord">
+      <div class="card-body"><div class="card-top"><div class="name">Discord</div><div class="rating">★ 5/5</div></div><div class="desc">Comunidades con voz, video y texto</div></div>
+    </a>
+    <a class="card" href="https://www.youtube.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" alt="YouTube">
+      <div class="card-body"><div class="card-top"><div class="name">YouTube</div><div class="rating">★ 5/5</div></div><div class="desc">Videos, tutoriales y entretenimiento</div></div>
+    </a>
+    <a class="card" href="https://www.spotify.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=spotify.com&sz=64" alt="Spotify">
+      <div class="card-body"><div class="card-top"><div class="name">Spotify</div><div class="rating">★ 5/5</div></div><div class="desc">Música, podcasts y listas personalizadas</div></div>
+    </a>
+    <a class="card" href="https://www.reddit.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=64" alt="Reddit">
+      <div class="card-body"><div class="card-top"><div class="name">Reddit</div><div class="rating">★ 5/5</div></div><div class="desc">Comunidades de discusión</div></div>
+    </a>
+    <a class="card" href="https://www.pinterest.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" alt="Pinterest">
+      <div class="card-body"><div class="card-top"><div class="name">Pinterest</div><div class="rating">★ 5/5</div></div><div class="desc">Inspiración visual e ideas creativas</div></div>
+    </a>
+    <a class="card" href="https://www.tiktok.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=64" alt="TikTok">
+      <div class="card-body"><div class="card-top"><div class="name">TikTok</div><div class="rating">★ 5/5</div></div><div class="desc">Videos cortos con música y efectos</div></div>
+    </a>
+    <a class="card" href="https://cinecalidad.la" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=cinecalidad.la&sz=64" alt="Cine Calidad">
+      <div class="card-body"><div class="card-top"><div class="name">Cine Calidad</div><div class="rating">★ 5/5</div></div><div class="desc">Películas en alta definición gratis</div></div>
+    </a>
+    <a class="card" href="https://www.crunchyroll.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=crunchyroll.com&sz=64" alt="Crunchyroll">
+      <div class="card-body"><div class="card-top"><div class="name">Crunchyroll</div><div class="rating">★ 5/5</div></div><div class="desc">Anime y manga en streaming legal</div></div>
+    </a>
+    <a class="card" href="https://www.wattpad.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=wattpad.com&sz=64" alt="Wattpad">
+      <div class="card-body"><div class="card-top"><div class="name">Wattpad</div><div class="rating">★ 5/5</div></div><div class="desc">Historias originales de todo el mundo</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  5. ESPECIALIDAD — CÓDIGO                          -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="categoria" id="esp">
+  <h3>Especialidad — Código</h3>
+
+  <div class="section-divider">
+    <h4>Aprendizaje</h4>
+    <span>Rutas y Tutoriales</span>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="https://roadmap.sh" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=roadmap.sh&sz=64" alt="Roadmap.sh">
+      <div class="card-body"><div class="card-top"><div class="name">Roadmap.sh</div><div class="rating">★ 5/5</div></div><div class="desc">Rutas visuales para desarrollo web</div></div>
+    </a>
+    <a class="card" href="https://devdocs.io" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=devdocs.io&sz=64" alt="DevDocs">
+      <div class="card-body"><div class="card-top"><div class="name">DevDocs</div><div class="rating">★ 5/5</div></div><div class="desc">Documentaciones unificadas offline</div></div>
+    </a>
+    <a class="card" href="https://www.stackoverflow.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=stackoverflow.com&sz=64" alt="Stack Overflow">
+      <div class="card-body"><div class="card-top"><div class="name">Stack Overflow</div><div class="rating">★ 5/5</div></div><div class="desc">Comunidad global de programadores</div></div>
+    </a>
+    <a class="card" href="https://www.w3schools.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=w3schools.com&sz=64" alt="W3Schools">
+      <div class="card-body"><div class="card-top"><div class="name">W3Schools</div><div class="rating">★ 5/5</div></div><div class="desc">Tutoriales web con editor en línea</div></div>
+    </a>
+    <a class="card" href="https://developer.mozilla.org/es" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=developer.mozilla.org&sz=64" alt="MDN Web Docs">
+      <div class="card-body"><div class="card-top"><div class="name">MDN Web Docs</div><div class="rating">★ 5/5</div></div><div class="desc">Documentación oficial de tecnologías web</div></div>
+    </a>
+    <a class="card" href="https://www.freecodecamp.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=freecodecamp.org&sz=64" alt="freeCodeCamp">
+      <div class="card-body"><div class="card-top"><div class="name">freeCodeCamp</div><div class="rating">★ 5/5</div></div><div class="desc">Programación gratis con certificaciones</div></div>
+    </a>
+    <a class="card" href="https://www.codecademy.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=codecademy.com&sz=64" alt="Codecademy">
+      <div class="card-body"><div class="card-top"><div class="name">Codecademy</div><div class="rating">★ 5/5</div></div><div class="desc">Editor interactivo en el navegador</div></div>
+    </a>
+  </div>
+
+  <div class="section-divider">
+    <h4>Entornos y Repositorios</h4>
+    <span>Plataformas de Código</span>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="https://github.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="GitHub">
+      <div class="card-body"><div class="card-top"><div class="name">GitHub</div><div class="rating">★ 5/5</div></div><div class="desc">Control de versiones y open source</div></div>
+    </a>
+    <a class="card" href="https://huggingface.co" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=64" alt="HuggingFace">
+      <div class="card-body"><div class="card-top"><div class="name">HuggingFace</div><div class="rating">★ 5/5</div></div><div class="desc">Modelos de IA y aprendizaje automático</div></div>
+    </a>
+    <a class="card" href="https://replit.com/" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=replit.com&sz=64" alt="Replit">
+      <div class="card-body"><div class="card-top"><div class="name">Replit</div><div class="rating">★ 5/5</div></div><div class="desc">Código en el navegador multilenguaje</div></div>
+    </a>
+    <a class="card" href="https://stackblitz.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=stackblitz.com&sz=64" alt="StackBlitz">
+      <div class="card-body"><div class="card-top"><div class="name">StackBlitz</div><div class="rating">★ 5/5</div></div><div class="desc">IDE web con Node.js en el navegador</div></div>
+    </a>
+    <a class="card" href="https://colab.research.google.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=colab.research.google.com&sz=64" alt="Google Colab">
+      <div class="card-body"><div class="card-top"><div class="name">Google Colab</div><div class="rating">★ 5/5</div></div><div class="desc">Python con GPUs gratis para ciencia de datos</div></div>
+    </a>
+    <a class="card" href="https://codepen.io" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=codepen.io&sz=64" alt="CodePen">
+      <div class="card-body"><div class="card-top"><div class="name">CodePen</div><div class="rating">★ 5/5</div></div><div class="desc">Fragmentos HTML, CSS y JS en vivo</div></div>
+    </a>
+    <a class="card" href="https://notepad-plus-plus.org" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=notepad-plus-plus.org&sz=64" alt="Notepad++">
+      <div class="card-body"><div class="card-top"><div class="name">Notepad++</div><div class="rating">★ 5/5</div></div><div class="desc">Editor ligero Windows multilenguaje</div></div>
+    </a>
+    <a class="card" href="https://www.glideapps.com" target="_blank">
+      <img class="logo" src="https://www.google.com/s2/favicons?domain=glideapps.com&sz=64" alt="Glide">
+      <div class="card-body"><div class="card-top"><div class="name">Glide</div><div class="rating">★ 5/5</div></div><div class="desc">Apps móviles desde Google Sheets sin código</div></div>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  Kenshell Hub &nbsp;·&nbsp; Aprendizaje y Recursos Académicos &nbsp;·&nbsp;
+  <a href="#nucleo">↑ Volver arriba</a>
+</footer>
+
+<!-- ════════════════════ SCRIPT ════════════════════ -->
+<script>
+  function buscar() {
+    const q = document.getElementById('buscador').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('oculto', q !== '' && !text.includes(q));
+    });
+  }
+</script>
+</body>
+</html>
