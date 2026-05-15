@@ -75,7 +75,7 @@
     nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
     nav a {
       color: var(--text-mid); text-decoration: none;
-      font-size: 12.5px; padding: 5px 12px;
+      font-size: 10.5px; padding: 5px 12px;
       border-radius: 20px; border: 1px solid transparent;
       transition: all .2s; font-weight: 500;
     }
@@ -143,7 +143,7 @@
     main { max-width: 1160px; margin: 0 auto; padding: 48px 24px 80px; position: relative; z-index: 1; }
 
     /* ── SECTION ── */
-    .categoria { margin-bottom: 60px; }
+    .categoria { margin-bottom: 60px; scroll-margin-top: 110px; }
     .categoria > h3 {
       font-family: 'Syne', sans-serif;
       font-size: 13px; font-weight: 700;
@@ -301,6 +301,8 @@
     <a href="#conoc">Ejes de Conocimiento</a>
     <a href="#global">Global</a>
     <a href="#esp">Especialidad</a>
+    <a href="#comunicacion">Comunicación Directa</a>
+    <a href="#gestion">Gestión Universitaria</a>
   </nav>
 </header>
 
@@ -393,7 +395,7 @@
     </a>
   </div>
 
-  <p class="subtitulo-pago">Comunicación Directa</p>
+  <p class="subtitulo-pago" id="comunicacion">Comunicación Directa</p>
   <div class="grid">
     <div class="subgroup-label">Reuniones Virtuales</div>
     <a class="card" href="https://meet.google.com" target="_blank">
@@ -842,7 +844,7 @@
   </div>
 
   <!-- ── B. Gestión Universitaria ── -->
-  <div class="section-divider">
+  <div class="section-divider" id="gestion">
     <h4>B. Gestión Universitaria</h4>
     <span>Acceso Directo</span>
   </div>
