@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h3>Formulario de Registro</h3>
+        <form id="formularioRegistro" action="index02.html" method="POST">
+            <div>
+                <label for="nombre">Nombre</label><br><br>
+                <input type="text" id="nombre"><br><br>
+            </div>
+            <div>
+                <label for="edad">Edad</label><br><br>
+                <input type="number" id="edad"><br><br>
+            </div>
+            <div>
+                <label for="correo">Correo Elctrónico</label><br><br>
+                <input type="email" id="correo"><br><br>
+            </div>
+            <button type="submit">Guardar</button><br><br>
+        </form>
+
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Indice</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody id="registros">
+            
+        </tbody>
+    </table>
+    </main>
+    <footer></footer>
+    <script src="app.js"></script>
+</body>
+</html>
